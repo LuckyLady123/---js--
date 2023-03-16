@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏莫尼-----生鲜</title>
+    <link rel="shout icon" href="../images/favicon.ico">
+    <!-- 初始化样式 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<style>
+    img:hover {
+        opacity: 10;
+    }
+
+    html,
+    body {
+        background-color: #fff;
+    }
+
+    .w {
+        position: relative;
+    }
+
+    .fresh_logo {
+        margin-top: 23px;
+    }
+
+    .fresh_nav {
+        position: relative;
+        margin-top: 12px;
+    }
+
+    .fresh_img {
+        width: 100%;
+        height: 400px;
+        background-color: #f0f0f8;
+    }
+
+    .bg {
+        height: 375px;
+
+        margin: 0 auto;
+        background: url(../upload/fresh/bg.png) no-repeat;
+    }
+
+    .fresh_dropdown {
+        height: 24px;
+        width: 240px;
+        line-height: 24px;
+        background-color: rgb(0, 0, 0);
+
+    }
+
+    .fresh_dropdown .dt {
+        color: #fff;
+        text-align: center;
+
+    }
+
+    .fresh_dropdown .dd {
+        position: relative;
+        height: 300px;
+        width: 100%;
+        background-color: #fff;
+        opacity: .8;
+    }
+
+    .fresh_dropdown .dd li {
+        position: relative;
+        height: 60px;
+    }
+
+    .fresh_dropdown .dd i {
+        /* display: block; */
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 25px;
+        height: 25px;
+        background: url(../upload/fresh/sprite_fresh_fs.png) 0 0 no-repeat;
+    }
+
+    .fresh_dropdown .dd li:nth-child(2) i {
+        background-position: -30px 0;
+    }
+
+    .fresh_dropdown .dd li:nth-child(3) i {
+        background-position: -60px 0;
+    }
+
+    .fresh_dropdown .dd li:nth-child(4) i {
+        background-position: -30px -30px;
+    }
+
+    .fresh_dropdown .dd li:nth-child(5) i {
+        background-position: -0px -30px;
+    }
+
+    .fresh_dropdown .dd .text {
+        position: absolute;
+        left: 54px;
+        top: 4px;
+    }
+
+    .fresh_dropdown .dd h3 {
+        color: #000;
+    }
+
+    .fresh_dropdown .dd h3::after {
+        position: absolute;
+        left: 148px;
+        content: '\e920';
+        font-family: "icomoon";
+        font-size: 20px;
+        color: #898989;
+    }
+
+    .fresh_item {
+        position: absolute;
+        top: 0px;
+        left: 240px;
+    }
+
+    .fresh_item ul li {
+        float: left;
+        width: 122px;
+        text-align: center;
+    }
+
+    .fresh_item ul li:first-child a {
+        color: green;
+    }
+
+    .fresh_item ul li:last-child {
+        position: absolute;
+        right: -616px;
+        font-size: 14px;
+    }
+
+    .banner,
+    .banner_left {
+        position: absolute;
+        left: 240px;
+        top: 24px;
+    }
+
+    .banner li img,
+    .banner_left li img {
+        height: 300px;
+    }
+
+    .banner_left {
+        left: 972px;
+    }
+
+    .banner_shadow {
+        position: absolute;
+        top: 324px;
+    }
+
+    .banner_shadow img {
+        width: 1200px;
+    }
+
+    .decoration {
+        position: absolute;
+        top: 286px;
+        left: -86px;
+    }
+
+    .fresh_service {
+        position: absolute;
+        left: 164px;
+        top: 337px;
+    }
+
+    .fresh_service ul li {
+        position: relative;
+        float: left;
+        margin-right: 39px;
+        margin-left: 20px;
+    }
+
+    .fresh_service ul li img {
+        position: absolute;
+        top: 5px;
+        left: -49px;
+    }
+
+    .fresh_service ul li:nth-child(even) {
+        margin-top: 9px;
+        width: 1px;
+        height: 24px;
+        background-color: #ccc;
+    }
+
+    .fresh_service ul li:last-child {
+        margin-right: 0px;
+    }
+
+    .inspiration {
+        height: 697px;
+    }
+
+    .inspiration_hd {
+        position: relative;
+        height: 180px;
+        padding-top: 60px;
+    }
+
+    .inspiration_hd .text {
+        position: absolute;
+        left: 545px;
+        top: 70px;
+    }
+
+    .inspiration_hd .text {
+        text-align: center;
+        color: #000;
+    }
+
+    .inspiration_hd .text h3 {
+        font-size: 30px;
+    }
+
+    .inspiration_hd .text p {
+        font-size: 18px;
+    }
+
+    .inspiration_nav {
+        position: relative;
+        left: 300px;
+    }
+
+    .inspiration_nav ul li {
+        float: left;
+        width: 66px;
+        height: 64px;
+        padding: 23px 0;
+        font-size: 16px;
+        color: #000;
+        margin-right: 50px;
+
+    }
+
+    .inspiration_nav ul li:first-child {
+        border-bottom: 3px solid #000;
+    }
+
+    .inspiration_bg {
+        position: absolute;
+        top: 148px;
+        left: -125px;
+    }
+
+    .inspiration_dc {
+        position: absolute;
+        top: 545px;
+        left: -90px;
+    }
+
+    .inspiration_item {
+        position: absolute;
+        top: 312px;
+        right: 23px;
+        width: 755px;
+        height: 272px;
+        background-color: #f6f6f5;
+        border-bottom-right-radius: 70px;
+    }
+
+    .inspiration_item ul {
+        padding: 0 22px;
+    }
+
+    .inspiration_item ul li {
+        float: left;
+        width: 150px;
+        margin-right: 37px;
+
+    }
+
+    .inspiration_item ul li:last-child {
+        margin-right: 0;
+    }
+
+    .inspiration_item ul li p {
+        padding: 20px 10px;
+        color: #000;
+    }
+
+
+
+    .inspiration_item ul li em {
+        float: left;
+        font-size: 18px;
+        color: #fd7a51;
+
+    }
+
+    .inspiration_item ul li i {
+        padding-top: 5px;
+        float: right;
+        font-size: 12px;
+        color: #909090;
+    }
+
+    .inspiration .wenzi {
+        position: absolute;
+        left: 36px;
+        top: 333px;
+        color: #fff;
+    }
+
+    .inspiration .wenzi h3 {
+        font-weight: normal;
+        font-size: 30px;
+    }
+
+    .inspiration .wenzi i {
+        position: absolute;
+        left: 3px;
+        top: 55px;
+        height: 4px;
+        width: 80px;
+        background-color: #fff;
+    }
+
+    .inspiration .wenzi p {
+        position: absolute;
+        left: 3px;
+        top: 80px;
+        width: 200px;
+        font-size: 14px;
+    }
+
+    .healthy {
+        margin-top: 85px;
+    }
+
+    .healthy_hd p {
+        position: absolute;
+        top: 7px;
+        left: 474px;
+        font-size: 24px;
+        color: #000;
+    }
+
+    .healthy_bd {
+        margin-top: 57px;
+    }
+
+    .g_h h3 {
+        font-size: 24px;
+        color: #000;
+
+    }
+
+    .g_h em {
+        position: absolute;
+        top: 12px;
+        left: 113px;
+        font-size: 14px;
+        color: #a7a1a1;
+    }
+
+    .g_l {
+        float: left;
+    }
+
+    .pic {
+        height: 200px;
+        padding: 0 20px;
+    }
+
+    .g_l img {
+        width: 240px;
+    }
+
+    .g_r ul li {
+        /* overflow: hidden; */
+        float: left;
+        position: relative;
+        width: 230px;
+        height: 304px;
+        border: 1px solid transparent;
+        margin-left: 2px;
+    }
+
+    .g_r ul li:hover {
+        border-color: green;
+    }
+
+    .g_r ul li img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .g_r ul li h4 {
+        font-weight: 400;
+        font-size: 14px;
+        margin: 0 25px;
+        color: #000;
+    }
+
+    .g_r ul li .price {
+        margin: 0 25px;
+        font-size: 17px;
+        color: #9a2e1f;
+
+    }
+
+    .g_r ul li .price span {
+        font-size: 22px;
+    }
+
+    .recommendation {
+        overflow: hidden;
+    }
+
+    .footer {
+        background-color: #f0f0f8;
+    }
+
+    .active {
+        border-color: green;
+    }
+
+    .mask {
+        position: absolute;
+        bottom: -87px;
+        left: 0;
+        width: 100%;
+        height: 84px;
+        background-color: green;
+        color: #fff;
+        padding: 10px 55px 0;
+        text-align: center;
+    }
+
+    .mask h5 {
+        font-size: 18px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 7px;
+        font-weight: 400;
+    }
+
+    .mask p {
+        font-size: 13px;
+        margin: 5px 0 0;
+    }
+</style>
+
+<body>
+    <!-- 快捷导航栏开始 -->
+    <section class="shoutcut">
+        <div class="w">
+            <div class="fl">
+                <ul>
+                    <li>夏莫尼迎您！</li>
+                    <li>
+                        <a href="06login.html" class="style_blue">请登录</a>&nbsp;
+                        <a href="07register.html" class="style_red">免费注册</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="fr">
+                <ul>
+                    <li><a href="08Myorder.html" class="style_red">我的订单</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">我的夏莫尼</a></li>
+                    <li></li>
+                    <li><a href="#">夏莫尼会员</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">企业采购</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">关注夏莫尼</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">客户服务</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">网址导航</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- 快捷导航栏结束 -->
+    <!-- logo开始 -->
+    <div class="fresh_logo w">
+        <img src="../upload/fresh/logo.png" alt="">
+    </div>
+    <!-- logo结束 -->
+    <!-- fresh_nav 导航栏start -->
+    <div class="fresh_nav">
+        <div class="w">
+            <div class="fresh_dropdown">
+                <div class="dt">
+                    夏莫尼生鲜商品分类商品
+                </div>
+                <div class="dd">
+                    <li>
+                        <i class="fresh_icon"></i>
+                        <div class="text">
+                            <h3>新鲜水果</h3>
+                            <em>草莓 | 水蜜桃 | 车厘子</em>
+                        </div>
+
+                    </li>
+                    <li>
+                        <i class="fresh_icon"></i>
+                        <div class="text">
+                            <h3>海鲜水产</h3>
+                            <em>海鲜礼盒 | 鱼类 | 贝类</em>
+                        </div>
+
+                    </li>
+                    <li>
+                        <i class="fresh_icon"></i>
+                        <div class="text">
+                            <h3>蔬菜蛋品</h3>
+                            <em>水培蔬菜 | 玉米 | 蛋糕</em>
+                        </div>
+
+                    </li>
+                    <li>
+                        <i class="fresh_icon"></i>
+                        <div class="text">
+                            <h3>冷饮冻食</h3>
+                            <em>酸奶 | 冰淇淋 | 牛奶</em>
+                        </div>
+
+                    </li>
+                    <li>
+                        <i class="fresh_icon"></i>
+                        <div class="text">
+                            <h3>精选肉类</h3>
+                            <em>鸡翅 | 猪肋排 | 牛排</em>
+                        </div>
+
+                    </li>
+                </div>
+            </div>
+            <div class="fresh_item">
+                <ul>
+                    <li><a href="javascript:;">生鲜首页</a></li>
+                    <li><a href="javascript:;">0元购</a></li>
+                    <li><a href="javascript:;">企业购</a></li>
+                    <li><a href="../index.html">返回首页</a></li>
+                </ul>
+            </div>
+            <div class="banner">
+                <ul>
+                    <li>
+                        <img src="../upload/fresh/banner.png" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="banner_left">
+                <ul>
+                    <li>
+                        <img src="../upload/fresh/banner_left.png" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="banner_shadow">
+                <img src="../upload/fresh/shadow.png" alt="">
+            </div>
+            <div class="decoration">
+                <img src="../upload/fresh/decoration.png" alt="">
+            </div>
+            <div class="fresh_service">
+                <ul>
+                    <li>
+
+                        <img src="../upload/fresh/service1.png" alt="">
+                        <div class="text">
+                            <h3>食品安全</h3>
+                            <p>精选生鲜 严格质检</p>
+                        </div>
+
+                    </li>
+                    <li></li>
+                    <li>
+
+                        <img src="../upload/fresh/service2.png" alt="">
+                        <div class="text">
+                            <h3>全程冷链</h3>
+                            <p>自营物流 安全可控</p>
+                        </div>
+
+                    </li>
+                    <li></li>
+                    <li>
+
+                        <img src="../upload/fresh/service3.png" alt="">
+                        <div class="text">
+                            <h3>鲜活天然</h3>
+                            <p>绿色生态 夏莫尼精选</p>
+                        </div>
+
+                    </li>
+                    <li></li>
+                    <li>
+
+                        <img src="../upload/fresh/service4.png" alt="">
+                        <div class="text">
+                            <h3>产地直采</h3>
+                            <p>限定产源 质量保证</p>
+                        </div>
+
+                    </li>
+                    <li></li>
+                    <li>
+
+                        <img src="../upload/fresh/service5.png" alt="">
+                        <div class="text">
+                            <h3>无忧售货</h3>
+                            <p>优鲜赔 售后通道</p>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="fresh_img">
+            <div class="bg">
+            </div>
+        </div>
+    </div>
+    <!-- fresh_nav 导航栏end -->
+    <!-- 身临食感开始 -->
+    <div class="inspiration">
+        <div class="w">
+            <div class="inspiration_hd">
+                <img src="../upload/fresh/decoration_tree.png" alt="">
+                <div class="text">
+                    <p>身 / 临 / 食 / 感</p>
+                    <i>INSPIRATION FRESH</i>
+                </div>
+            </div>
+            <div class="inspiration_bd">
+                <div class="inspiration_nav">
+                    <ul>
+                        <li>精选礼盒</li>
+                        <li>火锅诱惑</li>
+                        <li>深夜食堂</li>
+                        <li>进口美食</li>
+                    </ul>
+                </div>
+                <div class="inspiration_img">
+                    <img src="../upload/fresh/inspiration_bg.png" alt="" class="inspiration_bg">
+                    <img src="../upload/fresh/inspiration.png" alt="" class="inspiration_dc">
+                </div>
+                <div class="inspiration_item">
+                    <ul>
+                        <li>
+                            <img src="../upload/fresh/inpiration1.jpg" alt="">
+                            <div class="text">
+                                <p>顺丰空运 现摘巧克力奶油草莓3斤装 新鲜水果</p>
+
+                            </div>
+
+                            <em>￥59.90</em><i>好评率96%</i>
+
+                        </li>
+                        <li>
+                            <img src="../upload/fresh/inpiration2.jpg" alt="">
+                            <div class="text">
+                                <p>陆龙零食大礼包 七色礼袋 550g/袋 海味即食 礼 </p>
+
+                            </div>
+
+                            <em>￥178.00</em><i>好评率98%</i>
+
+                        </li>
+                        <li>
+                            <img src="../upload/fresh/inpiration3.jpg" alt="">
+                            <div class="text">
+                                <p>星龙港 福建冷冻佛跳墙 加热即食海鲜礼盒装 端</p>
+
+                            </div>
+
+                            <em>￥158.00</em><i>好评率99%</i>
+
+                        </li>
+                        <li>
+                            <img src="../upload/fresh/inpiration4.jpg" alt="">
+                            <div class="text">
+                                <p>【现货】强新温州正品鱼饼成型鱼圆合计1000</p>
+
+                            </div>
+
+                            <em>￥136.00</em><i>好评率99%</i>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wenzi">
+                <h3>精选礼盒</h3>
+                <i></i>
+                <p>送礼送健康，精选生鲜礼盒</p>
+            </div>
+        </div>
+    </div>
+    <!-- 身临食感结束 -->
+    <!-- 精挑细选百分健康美味start -->
+    <div class="healthy w">
+        <div class="healthy_hd">
+            <img src="../upload/fresh/decoration_tree.png" alt="">
+            <p>精挑细选百分健康美味</p>
+        </div>
+        <div class="healthy_bd">
+            <img src="../upload/fresh/healthy.png" alt="">
+        </div>
+    </div>
+    <!-- 精挑细选百分健康美味end -->
+    <!-- popular recommendation  start -->
+    <div class="recommendation w">
+        <div class="g_h">
+            <h3>人气推荐</h3>
+            <em>人气爆棚，不容错过</em>
+        </div>
+        <div class="g_l">
+            <img src="../upload/fresh/healthy.jpg" alt="">
+        </div>
+        <div class="g_r">
+            <ul>
+                <li>
+                    <div class="pic">
+                        <img src="../upload/fresh/healthy1.jpg" alt="">
+                    </div>
+                    <h4> 三文鱼 新鲜非冰冻 50000g<br>
+                        30元/500g<br>
+                        火锅食材
+                    </h4>
+                    <div class="price">
+                        ￥
+                        <span>300.00</span>
+                    </div>
+                    <div class="mask">
+                        <h5>找相似</h5>
+                        <p>发现更多宝贝</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="../upload/fresh/healthy2.jpg" alt="">
+                    </div>
+                    <h4> 红功夫 麻辣小龙虾1.5kg<br>
+                        4-6钱/25-32只<br>
+                        火锅食材
+                    </h4>
+                    <div class="price">
+                        ￥
+                        <span>199.00</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="../upload/fresh/healthy3.jpg" alt="">
+                    </div>
+                    <h4> 草鱼 清蒸 限时2500g<br>
+                        8元/500g<br>
+                        火锅食材
+                    </h4>
+                    <div class="price">
+                        ￥
+                        <span>40.00</span>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="../upload/fresh/healthy4.jpg" alt="">
+                    </div>
+                    <h4> 养殖海参 安全可靠1000g<br>
+                        100元/500g<br>
+                        火锅食材
+                    </h4>
+                    <div class="price">
+                        ￥
+                        <span>100.00</span>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="../upload/fresh/healthy5.jpg" alt="">
+                    </div>
+                    <h4> 家家乐 火龙果 现摘1.5kg<br>
+                        10元/500g<br>
+                        新鲜水果
+                    </h4>
+                    <div class="price">
+                        ￥
+                        <span>30.00</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="../upload/fresh/healthy6.jpg" alt="">
+                    </div>
+                    <h4> 现摘橘子 当季水果 甘甜4kg<br>
+                        4元/500g<br>
+                        新鲜水果
+                    </h4>
+                    <div class="price">
+                        ￥
+                        <span>16.00</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="../upload/fresh/healthy7.jpg" alt="">
+                    </div>
+                    <h4> 牛油果 大个 核小 5000g<br>
+                        15元/500g<br>
+                        新鲜水果
+                    </h4>
+                    <div class="price">
+                        ￥
+                        <span>100.00</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="../upload/fresh/healthy8.jpg" alt="">
+                    </div>
+                    <h4> 泰国进口山竹水果 5A 4kg<br>
+                        45元/1kg<br>
+                        火锅食材
+                    </h4>
+                    <div class="price">
+                        ￥
+                        <span>180.00</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- popular recommendation  end -->
+    <!-- footer模块start -->
+    <footer class="footer">
+        <div class="w">
+            <div class="mod_service ">
+                <ul>
+                    <li>
+                        <h5 class="service_icon1"></h5>
+                        <div class="service_text">
+                            <h4>正品保障</h4>
+                            <p>正品保障、提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon2"></h5>
+                        <div class="service_text">
+                            <h4>夏莫尼物流</h4>
+                            <p>急速物流、急速送达</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon3"></h5>
+                        <div class="service_text">
+                            <h4>无忧售后</h4>
+                            <p>7天无理由退货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon4"></h5>
+                        <div class="service_text">
+                            <h4>特色服务</h4>
+                            <p>私人定制，家电套装</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon5"></h5>
+                        <div class="service_text">
+                            <h4>帮助中心</h4>
+                            <p>您的购物指南</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mod_help">
+                <dl>
+                    <dt><a href="javascirpt:;">购物指南</a></dt>
+                    <dd><a href="javascirpt:;">购物流程</a></dd>
+                    <dd><a href="javascirpt:;">会员介绍</a></dd>
+                    <dd><a href="javascirpt:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascirpt:;">常见问题</a></dd>
+                    <dd><a href="javascirpt:;">大家电</a></dd>
+                    <dd><a href="javascirpt:;">联系客服</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">配送方式</a></dt>
+                    <dd><a href="javascirpt:;">上门自取</a></dd>
+                    <dd><a href="javascirpt:;">支付方式</a></dd>
+                    <dd><a href="javascirpt:;">211限时达</a></dd>
+                    <dd><a href="javascirpt:;">配送服务查询</a></dd>
+                    <dd><a href="javascirpt:;">配送费收取标准</a></dd>
+                    <dd><a href="javascirpt:;">海外配送</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">支付方式</a></dt>
+                    <dd><a href="javascirpt:;">货到付款</a></dd>
+                    <dd><a href="javascirpt:;">在线支付</a></dd>
+                    <dd><a href="javascirpt:;">分期付款</a></dd>
+                    <dd><a href="javascirpt:;">邮局汇款</a></dd>
+                    <dd><a href="javascirpt:;">公司转账</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">售后服务</a></dt>
+                    <dd><a href="javascirpt:;">售后政策</a></dd>
+                    <dd><a href="javascirpt:;">价格保护</a></dd>
+                    <dd><a href="javascirpt:;">退款说明</a></dd>
+                    <dd><a href="javascirpt:;">退修/退换货</a></dd>
+                    <dd><a href="javascirpt:;">取消订单</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">特色服务</a></dt>
+                    <dd><a href="javascirpt:;">夺宝岛</a></dd>
+                    <dd><a href="javascirpt:;">DIY装机</a></dd>
+                    <dd><a href="javascirpt:;">延保服务</a></dd>
+                    <dd><a href="javascirpt:;">夏莫尼会员卡</a></dd>
+                    <dd><a href="javascirpt:;">亲情服务</a></dd>
+                </dl>
+                <dl>
+                    <dt>帮助中心</dt>
+                    <dd><img src="../images/erweima.png" alt=""></dd>
+                    <dd>夏莫尼客户端</dd>
+                </dl>
+            </div>
+            <div class="mode_copyright">
+                <div class="links">
+                    <a href="javascirpt:;">关于我们</a> |
+                    <a href="javascirpt:;">联系我们</a> |
+                    <a href="javascirpt:;">联系客服</a> |
+                    <a href="javascirpt:;">商家入驻</a> |
+                    <a href="javascirpt:;">营销中心</a> |
+                    <a href="javascirpt:;">手机夏莫尼</a> |
+                    <a href="javascirpt:;">友情链接</a> |
+                    <a href="javascirpt:;">销售联盟</a> |
+                    <a href="javascirpt:;">夏莫尼社区</a> |
+                    <a href="javascirpt:;">夏莫尼公益</a> |
+                    <a href="javascirpt:;">English Site</a> |
+                    <a href="javascirpt:;">Contact U</a> |
+                </div>
+                <div class="copyright">
+                    地址：湖南省长沙市芙蓉区 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn<br>
+                    湘ICP备08001421号湘公网安备110108007702
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer模块end -->
+</body>
+
+</html>

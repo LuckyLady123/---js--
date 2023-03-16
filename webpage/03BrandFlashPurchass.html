@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏莫尼-----品牌闪购</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+</head>
+<style>
+    .header {
+        height: 84px;
+        background-color: #fff;
+        margin-top: 10px;
+    }
+
+    .shopcar {
+        top: 5px;
+    }
+
+    .navBrand {
+        float: right;
+        margin-top: 56px;
+        margin-right: 54px;
+    }
+
+    .navBrand ul li {
+        float: left;
+        width: 66px;
+        height: 77px;
+        margin-left: 22px;
+    }
+
+    .navBrand ul li a {
+        font-size: 16px;
+    }
+
+    .active {
+        color: #ff2e40;
+        border-bottom: 1px solid #ff2e40;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    img:hover {
+        opacity: 10;
+    }
+
+    .Shangxintaday div {
+        position: relative;
+    }
+
+    .Shangxintaday div img {
+        height: 337px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .saleBox {
+        margin-bottom: 8px;
+        height: 370px;
+    }
+
+    .saleBox .left,
+    .saleBox .right {
+        position: relative;
+    }
+
+    .saleBox .left {
+        float: left;
+    }
+
+    .saleBox .right {
+        float: right;
+    }
+
+
+    .day {
+        position: absolute;
+        left: 35px;
+        top: 48px;
+        width: 158px;
+        height: 38px;
+        background-color: #f4f4f4;
+        font-size: 14px;
+        text-align: center;
+        line-height: 38px;
+    }
+
+    .day img {
+        width: 16px !important;
+        height: 16px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .saleBox .day {
+        width: 164px;
+        height: 27px;
+        top: 83px;
+        left: 8px;
+    }
+
+    .toTime {
+        position: absolute;
+        left: 44px;
+        top: 42px;
+        width: 452px;
+        height: 60px;
+        font-size: 24px;
+        padding-top: 18px;
+        background-color: #c8ab8b;
+        text-align: center;
+        color: #fff;
+    }
+
+    .toTime a {
+        display: inline-block;
+        width: 49px;
+        height: 35px;
+        color: #c8ab8b;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .leftDay {
+        position: absolute;
+        width: 200px;
+        height: 42px;
+        font-size: 18px;
+        background-color: #f4f4f4;
+        left: 55px;
+        top: 37px;
+        padding-top: 2px;
+        text-align: center;
+    }
+
+    .leftDay a {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        background-color: #4a4a4a;
+        color: #fff;
+        line-height: 28px;
+    }
+
+    .leftDay img {
+        width: 16px;
+    }
+</style>
+<script>
+    window.addEventListener('load', function () {
+        //1、倒计时之天数
+        var today = document.querySelector('.day').querySelector('.today');
+        var rightDay = document.querySelector('.rightDay');
+        var rightDay2 = document.querySelector('.rightDay2');
+        var rightDay3 = document.querySelector('.rightDay3');
+        var toTime = document.querySelector('.toTime');
+        var toTimeH = toTime.querySelector('.h');
+        var toTimeM = toTime.querySelector('.m');
+        var toTimeS = toTime.querySelector('.s');
+        var threeTotime = document.querySelector('.threeTotime');
+        // console.log(threeTotime);
+        var threeToTimeH = threeTotime.querySelector('#h');
+        var threeToTimeM = threeTotime.querySelector('#m');
+        var threeToTimeS = threeTotime.querySelector('#s');
+        var leftDay = document.querySelector(".leftDay");
+        var leftDayH = leftDay.querySelector(".h");
+        var leftDayM = leftDay.querySelector(".m");
+        var leftDayS = leftDay.querySelector(".s");
+        var leftDay2 = document.querySelector(".leftDay2");
+        var leftDayH2 = leftDay2.querySelector("#hour");
+        var leftDayM2 = leftDay2.querySelector("#minute");
+        var leftDayS2 = leftDay2.querySelector("#second");
+        var leftDay3 = document.querySelector(".leftDay3");
+        //  console.log(leftDay3);
+        var leftDayH3 = leftDay3.querySelector("#day3H");
+        var leftDayM3 = leftDay3.querySelector("#day3M");
+        var leftDayS3 = leftDay3.querySelector("#day3S");
+        // console.log(today);
+        function toDay(days, time) {
+            var inputTime = +new Date(time);
+            var nowTime = +new Date();
+            var times = (inputTime - nowTime) / 1000;
+            var day = parseInt((times / 60 / 60 / 24) % 365);
+            days.innerHTML = day;
+        }
+        toDay(today, "2022-1-20");
+        toDay(rightDay, "2022-1-19");
+        toDay(rightDay2, "2022-1-30");
+        toDay(rightDay3, "2022-1-18");
+        // 2 倒计时之时分秒
+        TimeDay();
+        setInterval(TimeDay, 1000)
+        function TimeDay(time) {
+            var inputTime = +new Date('2399-9-20 12:11:11');
+            var nowTime = +new Date();
+            var times = (inputTime - nowTime) / 1000;
+            // var day = parseInt((times / 60 / 60 / 24) % 365);
+            // days.innerHTML = day;
+            var h = parseInt((times / 60 / 60) % 24);
+            h = h < 10 ? "0" + h : h;
+            toTimeH.innerHTML = h;
+            var m = parseInt((times / 60) % 60);
+            m = m < 10 ? "0" + m : m;
+            toTimeM.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? "0" + s : s;
+            toTimeS.innerHTML = s;
+        };
+
+        TimeThree();
+        setInterval(TimeThree, 1000)
+        function TimeThree(time) {
+            var inputTime = +new Date('2399-9-20 09:30:59');
+            var nowTime = +new Date();
+            var times = (inputTime - nowTime) / 1000;
+            // var day = parseInt((times / 60 / 60 / 24) % 365);
+            // days.innerHTML = day;
+            var h = parseInt((times / 60 / 60) % 24);
+            h = h < 10 ? "0" + h : h;
+            threeToTimeH.innerHTML = h;
+            var m = parseInt((times / 60) % 60);
+            m = m < 10 ? "0" + m : m;
+            threeToTimeM.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? "0" + s : s;
+            threeToTimeS.innerHTML = s;
+        }
+        TimeLeft();
+        setInterval(TimeLeft, 1000)
+        function TimeLeft(time) {
+            var inputTime = +new Date('2399-9-20 06:23:50');
+            var nowTime = +new Date();
+            var times = (inputTime - nowTime) / 1000;
+            // var day = parseInt((times / 60 / 60 / 24) % 365);
+            // days.innerHTML = day;
+            var h = parseInt((times / 60 / 60) % 24);
+            h = h < 10 ? "0" + h : h;
+            leftDayH.innerHTML = h;
+            var m = parseInt((times / 60) % 60);
+            m = m < 10 ? "0" + m : m;
+            leftDayM.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? "0" + s : s;
+            leftDayS.innerHTML = s;
+        }
+        TimeLeft2();
+        setInterval(TimeLeft2, 1000)
+        function TimeLeft2(time) {
+            var inputTime = +new Date('2399-9-20 04:13:51');
+            var nowTime = +new Date();
+            var times = (inputTime - nowTime) / 1000;
+            // var day = parseInt((times / 60 / 60 / 24) % 365);
+            // days.innerHTML = day;
+            var h = parseInt((times / 60 / 60) % 24);
+            h = h < 10 ? "0" + h : h;
+            leftDayH2.innerHTML = h;
+            var m = parseInt((times / 60) % 60);
+            m = m < 10 ? "0" + m : m;
+            leftDayM2.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? "0" + s : s;
+            leftDayS2.innerHTML = s;
+        }
+        TimeLeft3();
+        setInterval(TimeLeft3, 1000)
+        function TimeLeft3(time) {
+            var inputTime = +new Date('2399-9-20 22:53:05');
+            var nowTime = +new Date();
+            var times = (inputTime - nowTime) / 1000;
+            // var day = parseInt((times / 60 / 60 / 24) % 365);
+            // days.innerHTML = day;
+            var h = parseInt((times / 60 / 60) % 24);
+            h = h < 10 ? "0" + h : h;
+            leftDayH3.innerHTML = h;
+            var m = parseInt((times / 60) % 60);
+            m = m < 10 ? "0" + m : m;
+            leftDayM3.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? "0" + s : s;
+            leftDayS3.innerHTML = s;
+        }
+    })
+
+</script>
+
+<body>
+    <!-- 快捷导航栏模块 -->
+    <section class="shoutcut">
+        <div class="w">
+            <div class="fl">
+                <ul>
+                    <li>夏莫尼迎您！</li>
+                    <li>
+                        <a href="06login.html" class="style_blue">请登录</a>&nbsp;
+                        <a href="07register.html" class="style_red">免费注册</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="fr">
+                <ul>
+                    <li><a href="08Myorder.html" class="style_red">我的订单</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">我的夏莫尼</a></li>
+                    <li></li>
+                    <li><a href="#">夏莫尼会员</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">企业采购</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">关注夏莫尼</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">客户服务</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">网址导航</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- header模块制作start -->
+    <header class="header w">
+        <!-- logo模块 -->
+        <div class="logo">
+            <img src="../upload/BrandFlashPurchase/BrandFlashPurchase.png" alt="">
+        </div>
+        <!-- 购物车模块 -->
+        <div class="shopcar"><a href="09shopcar.html">
+                我的购物车
+                <i class="count">8</i>
+            </a>
+        </div>
+        <!-- nav 导航模块 -->
+        <div class="navBrand">
+            <ul>
+                <li><a href="javascript:;" class="active">今日上新</a></li>
+                <li><a href="javascript:;">服饰内衣</a></li>
+                <li><a href="javascript:;">家居日用</a></li>
+                <li><a href="javascript:;">3C数码</a></li>
+                <li><a href="javascript:;">母婴童装</a></li>
+                <li><a href="javascript:;">更多</a></li>
+                <li><a href="../index.html">返回首页</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container w">
+        <div class="container_hd">
+            <img src="../upload/BrandFlashPurchase/ShangxinTaday.png" alt="">
+        </div>
+
+        <!-- 今日上新 -->
+        <div class="Shangxintaday">
+            <div class="one">
+                <img src="../upload/BrandFlashPurchase/FlashPurchase1.png" alt="">
+                <span class="day">
+                    <img src="../upload/BrandFlashPurchase/timeIco.png" alt="">
+                    仅剩 <a class="style_red today"> 2</a> 天
+                </span>
+            </div>
+            <div class="two">
+                <img src="../upload/BrandFlashPurchase/FlashPurchase2.png" alt="">
+                <span class="toTime">
+                    距结束
+                    <a class="h">00</a> 时
+                    <a class="m">00</a> 分
+                    <a class="s">00</a> 秒
+                </span>
+            </div>
+            <div class="three">
+                <img src="../upload/BrandFlashPurchase/FlashPurchase3.png" alt="">
+                <span class="toTime threeTotime">
+                    距结束
+                    <a id="h">00</a> 时
+                    <a id="m">00</a> 分
+                    <a id="s">00</a> 秒
+                </span>
+            </div>
+        </div>
+
+        <!-- 活动特卖 -->
+        <div class="eventSale">
+            <div class="sale_hd">
+                <img src="../upload/BrandFlashPurchase/eventSaleIco.png" alt="">
+            </div>
+            <div class="saleBox">
+                <div class="left">
+                    <img src="../upload/BrandFlashPurchase/special1.png" alt="">
+                    <span class="leftDay">
+                        <img src="../upload/BrandFlashPurchase/timeIco.png" alt="">
+                        仅剩
+                        <a class="h">00</a> :
+                        <a class="m">00</a> :
+                        <a class="s">00</a>
+                    </span>
+                </div>
+                <div class="right">
+                    <img src="../upload/BrandFlashPurchase/special2.png" alt="">
+                    <span class="day">
+                        <img src="../upload/BrandFlashPurchase/timeIco.png" alt="">
+                        仅剩 <a class="style_red rightDay"> 2</a> 天
+                    </span>
+                </div>
+            </div>
+            <div class="saleBox">
+                <div class="left">
+                    <img src="../upload/BrandFlashPurchase/special3.png" alt="">
+                    <span class="leftDay leftDay2">
+                        <img src="../upload/BrandFlashPurchase/timeIco.png" alt="">
+                        仅剩
+                        <a id="hour">00</a> :
+                        <a id="minute">00</a> :
+                        <a id="second">00</a>
+                    </span>
+                </div>
+                <div class="right">
+                    <img src="../upload/BrandFlashPurchase/special4.png" alt="">
+                    <span class="day">
+                        <img src="../upload/BrandFlashPurchase/timeIco.png" alt="">
+                        仅剩 <a class="style_red rightDay2"> 2</a> 天
+                    </span>
+                </div>
+            </div>
+            <div class="saleBox">
+                <div class="left">
+                    <img src="../upload/BrandFlashPurchase/special5.png" alt="">
+                    <span class="leftDay leftDay3">
+                        <img src="../upload/BrandFlashPurchase/timeIco.png" alt="">
+                        仅剩
+                        <a id="day3H">00</a> :
+                        <a id="day3M">00</a> :
+                        <a id="day3S">00</a>
+                    </span>
+                </div>
+                <div class="right">
+                    <img src="../upload/BrandFlashPurchase/special6.png" alt="">
+                    <span class="day">
+                        <img src="../upload/BrandFlashPurchase/timeIco.png" alt="">
+                        仅剩 <a class="style_red rightDay3"> 2</a> 天
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- footer模块start -->
+    <footer class="footer">
+        <div class="w">
+            <div class="mod_service ">
+                <ul>
+                    <li>
+                        <h5 class="service_icon1"></h5>
+                        <div class="service_text">
+                            <h4>正品保障</h4>
+                            <p>正品保障、提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon2"></h5>
+                        <div class="service_text">
+                            <h4>夏莫尼物流</h4>
+                            <p>急速物流、急速送达</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon3"></h5>
+                        <div class="service_text">
+                            <h4>无忧售后</h4>
+                            <p>7天无理由退货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon4"></h5>
+                        <div class="service_text">
+                            <h4>特色服务</h4>
+                            <p>私人定制，家电套装</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon5"></h5>
+                        <div class="service_text">
+                            <h4>帮助中心</h4>
+                            <p>您的购物指南</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mod_help">
+                <dl>
+                    <dt><a href="javascirpt:;">购物指南</a></dt>
+                    <dd><a href="javascirpt:;">购物流程</a></dd>
+                    <dd><a href="javascirpt:;">会员介绍</a></dd>
+                    <dd><a href="javascirpt:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascirpt:;">常见问题</a></dd>
+                    <dd><a href="javascirpt:;">大家电</a></dd>
+                    <dd><a href="javascirpt:;">联系客服</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">配送方式</a></dt>
+                    <dd><a href="javascirpt:;">上门自取</a></dd>
+                    <dd><a href="javascirpt:;">支付方式</a></dd>
+                    <dd><a href="javascirpt:;">211限时达</a></dd>
+                    <dd><a href="javascirpt:;">配送服务查询</a></dd>
+                    <dd><a href="javascirpt:;">配送费收取标准</a></dd>
+                    <dd><a href="javascirpt:;">海外配送</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">支付方式</a></dt>
+                    <dd><a href="javascirpt:;">货到付款</a></dd>
+                    <dd><a href="javascirpt:;">在线支付</a></dd>
+                    <dd><a href="javascirpt:;">分期付款</a></dd>
+                    <dd><a href="javascirpt:;">邮局汇款</a></dd>
+                    <dd><a href="javascirpt:;">公司转账</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">售后服务</a></dt>
+                    <dd><a href="javascirpt:;">售后政策</a></dd>
+                    <dd><a href="javascirpt:;">价格保护</a></dd>
+                    <dd><a href="javascirpt:;">退款说明</a></dd>
+                    <dd><a href="javascirpt:;">退修/退换货</a></dd>
+                    <dd><a href="javascirpt:;">取消订单</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">特色服务</a></dt>
+                    <dd><a href="javascirpt:;">夺宝岛</a></dd>
+                    <dd><a href="javascirpt:;">DIY装机</a></dd>
+                    <dd><a href="javascirpt:;">延保服务</a></dd>
+                    <dd><a href="javascirpt:;">夏莫尼会员卡</a></dd>
+                    <dd><a href="javascirpt:;">亲情服务</a></dd>
+                </dl>
+                <dl>
+                    <dt>帮助中心</dt>
+                    <dd><img src="../images/erweima.png" alt=""></dd>
+                    <dd>夏莫尼客户端</dd>
+                </dl>
+            </div>
+            <div class="mode_copyright">
+                <div class="links">
+                    <a href="javascirpt:;">关于我们</a> |
+                    <a href="javascirpt:;">联系我们</a> |
+                    <a href="javascirpt:;">联系客服</a> |
+                    <a href="javascirpt:;">商家入驻</a> |
+                    <a href="javascirpt:;">营销中心</a> |
+                    <a href="javascirpt:;">手机夏莫尼</a> |
+                    <a href="javascirpt:;">友情链接</a> |
+                    <a href="javascirpt:;">销售联盟</a> |
+                    <a href="javascirpt:;">夏莫尼社区</a> |
+                    <a href="javascirpt:;">夏莫尼公益</a> |
+                    <a href="javascirpt:;">English Site</a> |
+                    <a href="javascirpt:;">Contact U</a> |
+                </div>
+                <div class="copyright">
+                    地址：湖南省长沙市芙蓉区 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn<br>
+                    湘ICP备08001421号湘公网安备110108007702
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer模块end -->
+</body>
+
+</html>

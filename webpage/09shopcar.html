@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏莫尼商城-购物车</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        body {
+            background-color: #fff;
+        }
+
+        .search {
+            position: absolute;
+            left: 774px;
+            top: 28px;
+            width: 426px;
+        }
+
+        .search input {
+            width: 342px;
+            background-color: transparent;
+        }
+
+        .content {
+            height: 1222px;
+        }
+
+        .content_list {
+            height: 36px;
+            line-height: 36px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+        }
+
+        .content_hd h3 {
+            margin-bottom: 23px;
+            font-size: 18px;
+            font-weight: normal;
+            color: #bd1c24;
+        }
+
+        .content_list ul li {
+            float: left;
+            font-size: 14px;
+        }
+
+        .content_list ul li:first-child {
+            padding-right: 197px;
+            padding-left: 5px;
+        }
+
+        .content_list ul li:nth-child(2) {
+            padding-right: 332px;
+        }
+
+        .content_list ul li:nth-child(n + 3) {
+            padding-right: 112px;
+        }
+
+        .content_list ul li:last-child {
+            padding-right: 0px;
+        }
+
+
+        .allcheck,
+        .shopcheck {
+            display: inline-block;
+            height: 14px;
+            width: 14px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        .shop {
+            height: 43px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid transparent;
+            border-bottom: 3px solid #ccc;
+            padding-top: 20px;
+
+        }
+
+        .shop span {
+            height: 18px;
+            width: 68px;
+            background-color: #bd1c24;
+            color: #fff;
+            font-size: 12px;
+            padding: 1px 2px;
+        }
+
+        .box1,
+        .box2 {
+            position: relative;
+            height: 110px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        .box1 .img {
+            margin-top: 20px;
+        }
+
+        .gift {
+            position: absolute;
+            left: 127px;
+            top: 60px;
+            height: 20px;
+            width: 98px;
+        }
+
+
+        .gift b {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            background-color: #bd1c24;
+            text-align: center;
+            color: #ddd;
+        }
+
+        .gift strong {
+            font-size: 12px;
+            font-weight: normal;
+            color: rgb(163, 163, 163);
+        }
+
+        .box2 {
+            margin-top: -1px;
+            height: 202px;
+        }
+
+        .img {
+            height: 83px;
+            width: 83px;
+            text-align: center;
+            line-height: 83px;
+            border: 1px solid #ededed;
+            margin-left: 35px;
+        }
+
+        .box1 .shopcheck,
+        .box2 .shopcheck {
+            position: absolute;
+            /* top: 30px; */
+        }
+
+        .box2 .shopcheck {
+            top: 44px;
+        }
+
+        .box1 p,
+        .box2 p {
+            position: absolute;
+            top: 17px;
+            left: 127px;
+        }
+
+        .color {
+            position: absolute;
+            top: 2px;
+            left: 283px;
+            width: 220px;
+        }
+
+        .unitPrice {
+            position: absolute;
+            left: 620px;
+            top: 17px;
+        }
+
+        .box2_top span:last-child {
+            background-color: #bd1c24;
+        }
+
+        .number {
+            position: absolute;
+            left: 778px;
+            top: 14px;
+        }
+
+        .number i {
+            display: inline-block;
+            width: 29px;
+            height: 29px;
+            line-height: 29px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .number i:nth-child(n+1) {
+            margin-left: -5px;
+        }
+
+        .subtotal {
+            position: absolute;
+            top: 17px;
+            left: 940px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .operation {
+            position: absolute;
+            right: 7px;
+            top: 17px;
+        }
+
+        .box2 .img {
+            margin-top: 10px;
+        }
+
+        .box2 p {
+            top: 41px;
+        }
+
+        .box2 .gift {
+            top: 82px;
+        }
+
+        .box2_top {
+            margin-top: 10px;
+            margin-left: 5px;
+            width: 483px;
+            height: 24px;
+        }
+
+        .box2_top .exchange {
+            width: 44px;
+            height: 20px;
+            border: 1px solid #bd1c24;
+            padding: 3px 10px;
+        }
+
+        .box2_top a {
+            background-color: #bd1c24;
+            color: #fff;
+            padding: 2px;
+        }
+
+        .text {
+            position: absolute;
+            top: 149px;
+            left: 56px;
+            font-size: 12px;
+            color: rgb(134, 134, 134);
+        }
+
+        .box3 {
+            margin-top: -1px;
+            background-color: #fdedee;
+        }
+
+        .box3:last-child {
+            background-color: #fff;
+        }
+
+        .box5 {
+            margin-top: -1px;
+        }
+
+        .box6 {
+            margin-top: 20px;
+        }
+
+        .sum {
+            width: 1200px;
+            position: relative;
+        }
+
+        .sum_box {
+            position: relative;
+            margin-top: 20px;
+            height: 50px;
+            width: 1092px;
+            padding-top: 15px;
+            border: 1px solid #ccc;
+            border-right: none;
+        }
+
+        .sum_box .right {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            padding-right: 20px;
+        }
+
+        .sum_box .right a {
+            font-size: 16px;
+            color: #e60012;
+        }
+
+        .sum_num {
+            position: absolute;
+            top: 0;
+            right: 0px;
+        }
+
+        .sum_num input {
+            width: 112px;
+            height: 50px;
+            background-color: #e60012;
+            color: #fff;
+        }
+
+        .del {
+            height: 106px;
+            padding-top: 20px;
+        }
+
+        .del_c {
+            margin-top: 20px;
+            background-color: #fffdee;
+            padding: 4px;
+        }
+
+        .del_c a {
+            display: inline-block;
+            margin-left: 350px;
+            margin-right: 160px;
+        }
+
+        .del_c i {
+            display: inline-block;
+            margin-right: 280px;
+        }
+
+        .gassYou {
+            height: 394px;
+        }
+
+        .gassYou_hd {
+            height: 42px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .gassYou_hd span {
+            float: left;
+            width: 86px;
+            height: 40px;
+            line-height: 42px;
+            text-align: center;
+            background-color: #c81623;
+            color: #fff;
+        }
+
+        .gassYou_hd span:last-child {
+            background-color: transparent;
+            color: #666666;
+        }
+
+        .gassYou_bd {
+            position: relative;
+            height: 311px;
+            line-height: 331px;
+            margin-top: 21px;
+            text-align: center;
+        }
+
+        .rotation_chart {
+            position: relative;
+            width: 1123px;
+            overflow: hidden;
+        }
+
+        .rotation_chart ul {
+            position: relative;
+            width: 600%;
+            margin-left: 40px;
+        }
+
+        .rotation_chart ul li {
+            float: left;
+            width: 249px;
+            height: 311px;
+            border: 1px dotted #ccc;
+            margin-left: -1px;
+        }
+
+        .gassYou_bd .pre,
+        .gassYou_bd .next {
+            position: absolute;
+            width: 20px;
+            height: 48px;
+            line-height: 48px;
+            margin-top: 120px;
+            font-size: 20px;
+            background-color: #dddddd;
+            font-family: 'icomoon';
+            color: #fff;
+            cursor: pointer;
+
+        }
+
+        .big_pre {
+            position: absolute;
+            left: 0;
+            width: 43px;
+            height: 311px;
+            background-color: #fff;
+            z-index: 3;
+        }
+
+        .gassYou_bd .pre {
+            left: 0;
+            z-index: 9999;
+        }
+
+        .gassYou_bd .next {
+            right: 0;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            //无缝滚动特效
+            var gassYou_bd = document.querySelector('.gassYou_bd');
+            //console.log(gassYou_bd);
+            var next = gassYou_bd.querySelector('.next');
+            var pre = gassYou_bd.querySelector('.pre');
+            var ul = gassYou_bd.querySelectorAll('ul')[0];
+            var lis = ul.getElementsByTagName('li'); // 此处不能用querySelectorAll 获取
+            var direction = -2;
+            var setTimer = null;
+            console.log(ul.offsetLeft);
+            ul.innerHTML = ul.innerHTML + ul.innerHTML;
+            ul.style.width = lis[0].offsetWidth * lis.length + 'px';
+            // console.log(ul.offsetWidth / 2);
+            console.log(ul.style.width);
+            function toChange() {
+
+                if (ul.offsetLeft > 0) {
+                    ul.style.left = -ul.offsetWidth / 2 + 'px';
+                } else if ((ul.offsetLeft) < -ul.offsetWidth / 2) {
+                    ul.style.left = -40 + 'px';
+                }
+
+                ul.style.left = (ul.offsetLeft - 40) + direction + 'px';
+            }
+            setTimer = setInterval(toChange, 60);
+
+            var pre = gassYou_bd.querySelector('.pre');
+            var next = gassYou_bd.querySelector('.next');
+
+            pre.addEventListener('click', function () {
+                direction = -2;
+            });
+
+            next.addEventListener('click', function () {
+                direction = 2;
+            })
+
+            ul.addEventListener('mouseover', function () {
+                clearInterval(setTimer);
+            });
+
+            ul.addEventListener('mouseout', function () {
+                setTimer = setInterval(toChange, 60)
+            })
+
+
+
+            // 全选与反选特效
+            var allCheck = document.querySelector('.allcheck');
+            console.log(allCheck);
+            var shopCheck = document.querySelector('#shopCheck').getElementsByTagName('input');
+            console.log(shopCheck[0].checked);
+            var lastAllCheck = document.querySelector('.lastAllCheck');
+            //1、全选做法
+            allCheck.onclick = lastAllCheck.onclick = function () {
+                //console.log(this.checked); //判断是否被选中
+                for (var i = 0; i < shopCheck.length; i++) {
+                    shopCheck[i].checked = lastAllCheck.checked = allCheck.checked = this.checked;
+                }
+            };
+            //2、下面复选框需要被全部选中，上面复选框才会被选中
+            //注意  一定要用两层for循环
+            //外层循环用于给每个元素绑定点击事件
+            //内层循环查看每次点击下面所有的复选框是否有没选中的，如果有一个没选中的， 上面全选就不选中。
+            for (var i = 0; i < shopCheck.length; i++) {
+                // console.log(shopCheck[i].checked);
+                shopCheck[i].addEventListener('click', function () {
+                    var flag = true;
+                    for (var i = 0; i < shopCheck.length; i++) {
+                        if (!shopCheck[i].checked) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    allCheck.checked = flag;
+                    lastAllCheck.checked = flag;
+                })
+
+
+            }
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <!-- 快捷导航栏模块 -->
+    <section class="shoutcut">
+        <div class="w">
+            <div class="fl">
+                <ul>
+                    <li>夏莫尼迎您！</li>
+                    <li>
+                        <a href="06login.html" class="style_blue">请登录</a>&nbsp;
+                        <a href="07register.html" class="style_red">免费注册</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="fr">
+                <ul>
+                    <li><a href="08Myorder.html" class="style_red">我的订单</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">我的夏莫尼</a></li>
+                    <li></li>
+                    <li><a href="#">夏莫尼会员</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">企业采购</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">关注夏莫尼</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">客户服务</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">网址导航</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- header模块制作start -->
+    <header class="header w">
+        <!-- logo模块 -->
+        <div class="logo">
+            <h1>
+                <a href="../index.html" title="夏莫尼商城">夏莫尼商城</a>
+            </h1>
+        </div>
+        <!-- search搜索模块 -->
+        <div class="search">
+            <input type="search" placeholder="夏莫尼自营">
+            <button>搜索</button>
+        </div>
+    </header>
+    <div class="content w">
+        <div class="content_hd">
+            <h3>全部商品</h3>
+            <div class="content_list">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="allcheck">
+                        全选
+                    </li>
+                    <li>商品</li>
+                    <li>单价（元）</li>
+                    <li>数量</li>
+                    <li>小计（元）</li>
+                    <li>操作</li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="shopCheck">
+            <div class="shop">
+                <input type="checkbox" class="shopcheck">
+                <span>夏莫尼自营</span>
+            </div>
+            <div class="box1">
+                <div class="box1_content">
+                    <input type="checkbox" class="shopcheck">
+                    <div class="img">
+                        <img src="../upload/shopcar/shopcar1.png" alt="">
+                    </div>
+                    <p>Apple iPad mini 8.3 英寸平板电脑<br>
+                        2021年新款（64G WLAN版/A15芯片/全面屏）
+                    </p>
+                    <div class="gift">
+                        <b><img src="../upload/shopcar/icon.png" alt=""></b>
+                        <strong>购买礼品包装</strong>
+                    </div>
+                    <div class="color">
+                        <p>深灰色</p>
+                    </div>
+                    <div class="unitPrice">
+                        2248.00
+                    </div>
+                    <div class="number">
+                        <i>-</i>
+                        <i>1</i>
+                        <i class="style_red">+</i>
+                    </div>
+                    <div class="subtotal">
+                        2248.00
+                    </div>
+                    <div class="operation">
+                        删除<br>
+                        移动我的关注
+                    </div>
+                </div>
+            </div>
+            <div class="box2 ">
+                <div class="box2_top">
+                    <span class="exchange">换购</span>
+                    <i>活动商品购满2888.00元，即可加价换购商品1件 > </i>
+                    <a>查看换购商品</a>
+                    <i>去凑单</i>
+                </div>
+
+                <input type="checkbox" class="shopcheck">
+                <div class="img">
+                    <img src="../upload/shopcar/shopcar2.png" alt="">
+                </div>
+                <p>Apple Macbook Air 13.3英寸笔记本电脑<br>
+                    银色（Corei5）处理器/8GB内存
+                </p>
+                <div class="color">
+                    <p>尺寸：13.3英寸</p>
+                </div>
+                <div class="unitPrice">
+                    8848.00
+                </div>
+                <div class="number">
+                    <i>-</i>
+                    <i>1</i>
+                    <i class="style_red">+</i>
+                </div>
+                <div class="subtotal">
+                    8848.00
+                </div>
+                <div class="operation">
+                    删除<br>
+                    移动我的关注
+                </div>
+                <div class="text">
+                    <em>[赠品]圣迪威（Sendio）MacBook13.3寸屏幕保... &nbsp; &nbsp; &nbsp; &nbsp;X1</em><br>
+                    <em>[赠品]圣迪威（Sendio）MacBook13.3清洁套装... &nbsp; &nbsp; &nbsp; &nbsp;X1</em>
+                </div>
+            </div>
+            <div class="box1 box3">
+                <div class="box1_content">
+                    <input type="checkbox" class="shopcheck">
+                    <div class="img">
+                        <a href="05iPhone13.html">
+                            <img src="../upload/shopcar/shopcar3.png" alt="">
+                        </a>
+                    </div>
+                    <p>Apple 苹果13 iPhone 13<br>
+                        支持移动联通电信5G 双卡双待
+                    </p>
+                    <div class="gift">
+                        <b><img src="../upload/shopcar/icon.png" alt=""></b>
+                        <strong>购买礼品包装</strong>
+                    </div>
+                    <div class="color">
+                        <p>粉色</p>
+                    </div>
+                    <div class="unitPrice">
+                        6399.00
+                    </div>
+                    <div class="number">
+                        <i>-</i>
+                        <i>1</i>
+                        <i class="style_red">+</i>
+                    </div>
+                    <div class="subtotal">
+                        6399.00
+                    </div>
+                    <div class="operation">
+                        删除<br>
+                        移动我的关注
+                    </div>
+                </div>
+            </div>
+            <div class="box1  box5">
+                <div class="box1_content">
+                    <input type="checkbox" class="shopcheck">
+                    <div class="img">
+                        <img src="../upload/shopcar/shopcar4.png" alt="">
+                    </div>
+                    <p>Apple iPad mini 8.3 英寸平板电脑<br>
+                        2021年新款（64G WLAN版/A15芯片/全面屏）
+                    </p>
+                    <div class="gift">
+                        <b><img src="../upload/shopcar/icon.png" alt=""></b>
+                        <strong>购买礼品包装</strong>
+                    </div>
+                    <div class="color">
+                        <p>Thunderbolt至千兆...</p>
+                    </div>
+                    <div class="unitPrice">
+                        248.00
+                    </div>
+                    <div class="number">
+                        <i>-</i>
+                        <i>1</i>
+                        <i class="style_red">+</i>
+                    </div>
+                    <div class="subtotal">
+                        248.00
+                    </div>
+                    <div class="operation">
+                        删除<br>
+                        移动我的关注
+                    </div>
+                </div>
+            </div>
+            <div class="box1  box5">
+                <div class="box1_content">
+
+                    <input type="checkbox" class="shopcheck">
+                    <div class="img">
+                        <img src="../upload/shopcar/shopcar5.png" alt="">
+                    </div>
+                    <p>Apple iPad mini 8.3 英寸平板电脑<br>
+                        2021年新款（64G WLAN版/A15芯片/全面屏）
+                    </p>
+                    <div class="gift">
+                        <b><img src="../upload/shopcar/icon.png" alt=""></b>
+                        <strong>购买礼品包装</strong>
+                    </div>
+                    <div class="color">
+                        <p>Thunderbolt至千兆...</p>
+                    </div>
+                    <div class="unitPrice">
+                        3799.00
+                    </div>
+                    <div class="number">
+                        <i>-</i>
+                        <i>1</i>
+                        <i class="style_red">+</i>
+                    </div>
+                    <div class="subtotal">
+                        3799.00
+                    </div>
+                    <div class="operation">
+                        删除<br>
+                        移动我的关注
+                    </div>
+                </div>
+            </div>
+            <div class="shop">
+                <input type="checkbox" class="shopcheck">
+                <span>神州数码专营店</span>
+            </div>
+            <div class="box2 box6">
+                <div class="box2_top">
+                    <span class="exchange">换购</span>
+                    <i>活动商品购满2888.00元，即可加价换购商品1件 > </i>
+                    <a>查看换购商品</a>
+                    <i>去凑单</i>
+                </div>
+
+                <input type="checkbox" class="shopcheck">
+                <div class="img">
+                    <img src="../upload/shopcar/shopcar6.png" alt="">
+                </div>
+                <p>DELL 戴尔Ins 15MR-75 28SS15英寸<br>
+                    银色（Corei5）处理器/8GB内存
+                </p>
+                <div class="color">
+                    <p>尺寸：13.3英寸</p>
+                </div>
+                <div class="unitPrice">
+                    8848.00
+                </div>
+                <div class="number">
+                    <i>-</i>
+                    <i>1</i>
+                    <i class="style_red">+</i>
+                </div>
+                <div class="subtotal">
+                    8848.00
+                </div>
+                <div class="operation">
+                    删除<br>
+                    移动我的关注
+                </div>
+                <div class="text">
+                    <em>[赠品]圣迪威（Sendio）MacBook13.3寸屏幕保... &nbsp; &nbsp; &nbsp; &nbsp;X1</em><br>
+                    <em>[赠品]圣迪威（Sendio）MacBook13.3清洁套装... &nbsp; &nbsp; &nbsp; &nbsp;X1</em>
+                </div>
+            </div>
+        </div>
+        <div class="sum">
+            <div class="sum_box">
+                <input type="checkbox" class="allcheck lastAllCheck">
+                全选 删除选中的商品 移到我的关注 清除下柜商品
+                <div class="right">
+                    <em>已选择0件商品 总价（不含运费） ： <a>¥16283.00</a><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已节省：-￥20.00
+                    </em>
+                </div>
+            </div>
+            <span class="sum_num">
+                <input type="submit" value="结算">
+            </span>
+        </div>
+        <div class="del">
+            <p>已删除商品，您可以重新购买或加关注：</p>
+            <div class="del_c">
+                圣迪威（Sendio）MacBook13.3清洁套...<a>8848</a><i>1</i>重新购买&nbsp;&nbsp;&nbsp;&nbsp; 移到我的关注
+            </div>
+        </div>
+    </div>
+    <div class="gassYou w">
+        <div class="gassYou_hd">
+            <span>猜你喜欢</span>
+            <span>特惠换购</span>
+        </div>
+        <div class="gassYou_bd">
+            <div class="next"></div>
+            <div class="big_pre">
+                <div class="pre"></div>
+            </div>
+            <div class="rotation_chart">
+                <ul>
+                    <li><img src="../upload/shopcar/gass1.png" alt=""></li>
+                    <li><img src="../upload/shopcar/gass2.png" alt=""></li>
+                    <li><img src="../upload/shopcar/gass3.png" alt=""></li>
+                    <li><img src="../upload/shopcar/gass4.png" alt=""></li>
+                    <li><img src="../upload/shopcar/gass5.png" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- header模块制作end -->
+    <!-- footer模块start -->
+    <footer class="footer">
+        <div class="w">
+            <div class="mod_service ">
+                <ul>
+                    <li>
+                        <h5 class="service_icon1"></h5>
+                        <div class="service_text">
+                            <h4>正品保障</h4>
+                            <p>正品保障、提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon2"></h5>
+                        <div class="service_text">
+                            <h4>夏莫尼物流</h4>
+                            <p>急速物流、急速送达</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon3"></h5>
+                        <div class="service_text">
+                            <h4>无忧售后</h4>
+                            <p>7天无理由退货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon4"></h5>
+                        <div class="service_text">
+                            <h4>特色服务</h4>
+                            <p>私人定制，家电套装</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon5"></h5>
+                        <div class="service_text">
+                            <h4>帮助中心</h4>
+                            <p>您的购物指南</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mod_help">
+                <dl>
+                    <dt><a href="javascirpt:;">购物指南</a></dt>
+                    <dd><a href="javascirpt:;">购物流程</a></dd>
+                    <dd><a href="javascirpt:;">会员介绍</a></dd>
+                    <dd><a href="javascirpt:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascirpt:;">常见问题</a></dd>
+                    <dd><a href="javascirpt:;">大家电</a></dd>
+                    <dd><a href="javascirpt:;">联系客服</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">配送方式</a></dt>
+                    <dd><a href="javascirpt:;">上门自取</a></dd>
+                    <dd><a href="javascirpt:;">支付方式</a></dd>
+                    <dd><a href="javascirpt:;">211限时达</a></dd>
+                    <dd><a href="javascirpt:;">配送服务查询</a></dd>
+                    <dd><a href="javascirpt:;">配送费收取标准</a></dd>
+                    <dd><a href="javascirpt:;">海外配送</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">支付方式</a></dt>
+                    <dd><a href="javascirpt:;">货到付款</a></dd>
+                    <dd><a href="javascirpt:;">在线支付</a></dd>
+                    <dd><a href="javascirpt:;">分期付款</a></dd>
+                    <dd><a href="javascirpt:;">邮局汇款</a></dd>
+                    <dd><a href="javascirpt:;">公司转账</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">售后服务</a></dt>
+                    <dd><a href="javascirpt:;">售后政策</a></dd>
+                    <dd><a href="javascirpt:;">价格保护</a></dd>
+                    <dd><a href="javascirpt:;">退款说明</a></dd>
+                    <dd><a href="javascirpt:;">退修/退换货</a></dd>
+                    <dd><a href="javascirpt:;">取消订单</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">特色服务</a></dt>
+                    <dd><a href="javascirpt:;">夺宝岛</a></dd>
+                    <dd><a href="javascirpt:;">DIY装机</a></dd>
+                    <dd><a href="javascirpt:;">延保服务</a></dd>
+                    <dd><a href="javascirpt:;">夏莫尼会员卡</a></dd>
+                    <dd><a href="javascirpt:;">亲情服务</a></dd>
+                </dl>
+                <dl>
+                    <dt>帮助中心</dt>
+                    <dd><img src="../images/erweima.png" alt=""></dd>
+                    <dd>夏莫尼客户端</dd>
+                </dl>
+            </div>
+            <div class="mode_copyright">
+                <div class="links">
+                    <a href="javascirpt:;">关于我们</a> |
+                    <a href="javascirpt:;">联系我们</a> |
+                    <a href="javascirpt:;">联系客服</a> |
+                    <a href="javascirpt:;">商家入驻</a> |
+                    <a href="javascirpt:;">营销中心</a> |
+                    <a href="javascirpt:;">手机夏莫尼</a> |
+                    <a href="javascirpt:;">友情链接</a> |
+                    <a href="javascirpt:;">销售联盟</a> |
+                    <a href="javascirpt:;">夏莫尼社区</a> |
+                    <a href="javascirpt:;">夏莫尼公益</a> |
+                    <a href="javascirpt:;">English Site</a> |
+                    <a href="javascirpt:;">Contact U</a> |
+                </div>
+                <div class="copyright">
+                    地址：湖南省长沙市芙蓉区 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn<br>
+                    湘ICP备08001421号湘公网安备110108007702
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer模块end -->
+</body>
+
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏莫尼 -----iPhone13</title>
+    <link rel="shoutcut icon" href="../images/favicon.ico">
+    <!-- 初始化样式 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<style>
+    .w {
+        background-color: #fff;
+    }
+
+    .product_nav {
+        height: 47px;
+        padding-top: 21px;
+    }
+
+    .product_nav a {
+        display: inline-block;
+        margin: 0 12px;
+    }
+
+    .product_nav a:first-child {
+        margin-left: 0;
+    }
+
+    .preview_wrap {
+        height: 616px;
+    }
+
+    .preview_wrap .fl {
+        float: left;
+        width: 401px;
+        height: 587px;
+    }
+
+    .preview_wrap .fr {
+        float: left;
+        margin-left: 86px;
+    }
+
+    .preview_img {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        line-height: 400px;
+        border: 1px solid #dfdfdf;
+        text-align: center;
+    }
+
+
+    .mask {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 300px;
+        height: 300px;
+        background-color: #FEDE4F;
+        border: 1px solid #ccc;
+        opacity: .5;
+        cursor: move;
+    }
+
+    .preview_img .small_img {
+        width: 393px;
+    }
+
+    .preview_img i {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 40px;
+        height: 40px;
+        background: url(../upload/iPhone/search_icon.png);
+    }
+
+    .preview_img .big {
+        display: none;
+        position: absolute;
+        left: 410px;
+        top: 0;
+        width: 500px;
+        height: 500px;
+        z-index: 9999;
+        border: 1px solid #ccc;
+        overflow: hidden;
+    }
+
+    .mini {
+        width: 408px;
+        height: 63px;
+        margin-top: 100px;
+        line-height: 63px;
+        margin-top: 64px;
+    }
+
+
+    .bigImg {
+        position: absolute;
+    }
+
+    .preview_text h4 {
+        font-size: 20px;
+        font-weight: normal;
+        color: #000;
+    }
+
+    .price {
+        height: 114px;
+        background-color: #feeaec;
+        margin-top: 10px;
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+
+    .price a {
+        font-size: 18px;
+    }
+
+    .price i {
+        float: right;
+        margin-right: 10px;
+        color: #a39696;
+    }
+
+    .price .text {
+        margin-top: 10px;
+    }
+
+    .price .more_price {
+        width: 41px;
+        height: 24px;
+        color: #fff;
+        background-color: #cb1625;
+        padding: 3px 2px;
+    }
+
+    .price_button {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
+
+    .price_button p {
+        margin-top: 10px;
+    }
+
+    .price_button em {
+        color: #a39696;
+    }
+
+    .type_info {
+        margin-top: 26px;
+    }
+
+    .type_info span {
+        height: 81px;
+        height: 41px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        padding: 13px 24px;
+        margin-left: 10px;
+    }
+
+    .type_info .active {
+        border: 1px solid #cb1625;
+    }
+
+    .type_info p {
+        margin-top: 30px;
+    }
+
+    .num {
+        position: relative;
+        margin-top: 40px;
+        width: 56px;
+        height: 48px;
+        border: 1px solid #ddd;
+    }
+
+    .num .number {
+        position: absolute;
+        left: 0;
+        height: 48px;
+        padding-left: 14px;
+        line-height: 48px;
+    }
+
+    .num i {
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        width: 19px;
+        height: 25px;
+        border: 1px solid #ddd;
+        background-color: #f2f0f5;
+        text-align: center;
+    }
+
+    .num i:nth-child(2) {
+        top: 23px;
+    }
+
+    .type_info button {
+        position: absolute;
+        left: 64px;
+        top: 0;
+        height: 48px;
+        width: 144px;
+        display: inline-block;
+        background-color: #cb1625;
+        color: #fff;
+    }
+
+    .num_wrap {
+        position: relative;
+    }
+
+    .content {
+        height: 4106px;
+    }
+
+    .content_left {
+        width: 212px;
+        float: left;
+        border: 1px solid #ddd;
+    }
+
+    .content_nav {
+        height: 42px;
+        line-height: 42px;
+        width: 212px;
+    }
+
+    .content_nav span {
+        width: 106px;
+        height: 42px;
+        background-color: #f7f7f7;
+        padding: 15px 28.5px;
+        border: none;
+        border-bottom: 2px solid #e43a3d;
+        border-top: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+
+    .content_nav span:first-child {
+        background-color: #e43a3d;
+        color: #fff;
+    }
+
+    .content_nav span:last-child {
+        margin-left: -4px;
+    }
+
+    .content_item {
+        margin-top: 10px;
+    }
+
+    .content_item p {
+        text-align: center;
+        padding: 10px 10px 15px;
+    }
+
+    .content_item i {
+        padding-left: 8px;
+        color: #a39696;
+    }
+
+    .content_item b {
+        padding-left: 62px;
+        color: #e43a3d;
+        font-size: 14px;
+    }
+
+    .content_right {
+        float: right;
+    }
+
+    .content_check {
+        width: 981px;
+        height: 305px;
+        border: 1px solid #ddd;
+    }
+
+    .check_hd {
+        height: 40px;
+        border-bottom: 1px solid #ddd;
+        background-color: #f7f7f7;
+    }
+
+    .check_hd span {
+        display: inline-block;
+        width: 87px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        background-color: #e43a3d;
+    }
+
+    .check_nav {
+        padding-left: 18px;
+    }
+
+    .check_nav ul li {
+        float: left;
+        color: #a39696;
+        margin-right: 40px;
+        padding-top: 10px;
+    }
+
+    .check_list {
+        margin-top: 20px;
+        margin-left: 10px;
+        width: 981px;
+        height: 218px;
+    }
+
+    .check_list ul li {
+        width: 158px;
+        height: 210px;
+        float: left;
+        color: #000;
+    }
+
+    .check_list ul li img {
+        width: 132px;
+        height: 132px;
+        line-height: 132px;
+    }
+
+    .check_list ul li b {
+        color: #cb1625;
+        font-size: 12px;
+    }
+
+    .check_iphone {
+        text-align: center;
+        font-weight: 14px;
+    }
+
+    .check_list ul .check_iphone b {
+        color: #cb1625;
+        font-size: 14px;
+    }
+
+    .check_list .next {
+        font-family: "icomoon";
+        position: absolute;
+        right: 202px;
+        top: 35px;
+        width: 20px;
+        height: 50px;
+        font-size: 20px;
+        color: #fff;
+        line-height: 50px;
+        text-align: center;
+        background-color: #dddddd;
+
+    }
+
+    .check_iphone img {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #cb1625;
+    }
+
+    .check_list input {
+        vertical-align: middle;
+    }
+
+    .check_list ul {
+        position: relative;
+    }
+
+    .check_list ul .plus {
+        width: 20px;
+        padding-top: 68px;
+        font-size: 16px;
+    }
+
+    .check_list_right b {
+        display: block;
+        margin-top: 19px;
+    }
+
+    .check_list_right strong {
+        font-size: 20px;
+    }
+
+    .check_list_right button {
+        margin-top: 46px;
+        width: 141px;
+        height: 46px;
+        background-color: #cb1625;
+        color: #fff;
+    }
+
+    .column {
+        margin-top: 20px;
+        height: 40px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+    }
+
+    .colum_nav span {
+        display: inline-block;
+        width: 90px;
+        height: 40px;
+        line-height: 40px;
+        border: none;
+        text-align: center;
+        margin-left: -4px;
+    }
+
+    .colum_nav span:first-child {
+        margin-left: 0px;
+        background-color: #cb1625;
+        color: #fff;
+    }
+
+    .colum_nav span:nth-child(4) {
+        width: 130px;
+    }
+
+    table {
+        padding-left: 58px;
+    }
+
+    table tr {
+        margin-top: 12px;
+    }
+
+    table .first {
+        display: inline-block;
+        margin: 30px 0;
+    }
+
+    table tr td {
+        width: 228px;
+        height: 20px;
+        margin-top: 12px;
+    }
+
+    .column a {
+        display: block;
+        text-align: right;
+        margin-top: 20px;
+        color: rgb(6, 6, 175);
+    }
+
+    .column_img {
+        text-align: center;
+    }
+
+    .recommend {
+        height: 274px;
+        margin-top: 20px;
+    }
+
+    .recommend_hd {
+        height: 40px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        border-bottom: 2px solid #cb1625;
+    }
+
+    .recommend_hd span {
+        display: block;
+        width: 107px;
+        height: 39px;
+        color: #fff;
+        line-height: 40px;
+        text-align: center;
+        background-color: #cb1625;
+    }
+
+    .recommend_hd ul li {
+        float: left;
+        width: 160px;
+        margin-right: 39px;
+        padding-left: 10px;
+        text-align: center;
+    }
+
+    .recommend_hd ul li b {
+        padding-left: 15px;
+        color: #cb1625;
+    }
+
+    .footer {
+        margin-top: -10px;
+    }
+</style>
+<script>
+    window.addEventListener('load', function () {
+        var preview_img = document.querySelector('.preview_img');
+        var mask = preview_img.querySelector('.mask');
+        var big = preview_img.querySelector('.big');
+        preview_img.addEventListener('mouseover', function () {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        });
+
+        preview_img.addEventListener('mouseout', function () {
+            mask.style.display = 'none';
+            big.style.display = 'none'
+        });
+
+        // 鼠标移动的时候，让黄色盒子跟着鼠标来走
+        preview_img.addEventListener('mousemove', function (e) {
+            //(1)先计算出鼠标在盒子内的坐标
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            //console.log(e.pageX);
+            //console.log(this.offsetLeft);
+            //(2)减去盒子的高度300的一半 150 就是mask最终的left和top值；
+            //(3)mask 移动的距离
+            var maskX = x - mask.offsetWidth / 2;
+            console.log(maskX);
+            var maskY = y - mask.offsetHeight / 2;
+            //(4)如果x 坐标小于了0 就让他停在零的位置
+            var maskMax = preview_img.offsetWidth - mask.offsetWidth;
+            if (maskX <= 0) {
+                maskX = 0;
+            } else if (maskX >= maskMax) {
+                maskX = maskMax;
+            };
+            if (maskY <= 0) {
+                maskY = 0;
+            } else if (maskY >= maskMax) {
+                maskY = maskMax;
+            };
+
+            mask.style.left = maskX + 'px';
+            mask.style.top = maskY + 'px';
+            //3、图片移动的距离 = 遮罩层移动的距离 * 大图片最大移动的距离 / 遮罩层的最大距离
+            var bigImg = preview_img.querySelector('.bigImg');
+            //   console.log(bigImg);
+            var bigMax = bigImg.offsetWidth - big.offsetWidth;
+            var bigX = maskX * bigMax / maskMax;
+            var bigY = maskY * bigMax / maskMax;
+            bigImg.style.left = -bigX + 'px';
+            bigImg.style.top = -bigY + 'px'
+        });
+    })
+</script>
+
+<body>
+    <!-- 快捷导航栏模块 -->
+    <section class="shoutcut">
+        <div class="w">
+            <div class="fl">
+                <ul>
+                    <li>夏莫尼迎您！</li>
+                    <li>
+                        <a href="06login.html" class="style_blue">请登录</a>&nbsp;
+                        <a href="07register.html" class="style_red">免费注册</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="fr">
+                <ul>
+                    <li><a href="08Myorder.html" class="style_red">我的订单</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">我的夏莫尼</a></li>
+                    <li></li>
+                    <li><a href="#">夏莫尼会员</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">企业采购</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">关注夏莫尼</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">客户服务</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">网址导航</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- header模块制作start -->
+    <header class="header w">
+        <!-- logo模块 -->
+        <div class="logo">
+            <h1>
+                <a href="../index.html" title="夏莫尼商城">夏莫尼商城</a>
+            </h1>
+        </div>
+        <!-- search搜索模块 -->
+        <div class="search">
+            <input type="search" placeholder="javacript书籍">
+            <button>搜索</button>
+        </div>
+        <!-- hotwords模块制作 -->
+        <div class="hotwords">
+            <a href="#">夏莫尼首发</a>
+            <a href="#">亿元优惠</a>
+            <a href="#">9.9团购</a>
+            <a href="#">每满99减30</a>
+            <a href="#">办公用品</a>
+            <a href="#">电脑</a>
+            <a href="#">通信</a>
+        </div>
+        <!-- 购物车模块 -->
+        <div class="shopcar"><a href="09shopcar.html">
+                我的购物车
+                <i class="count">8</i>
+            </a>
+        </div>
+    </header>
+    <!-- header模块制作end -->
+    <!-- nav模块制作start -->
+    <nav class="nav w">
+        <div class="w">
+            <div class="dropdown">
+                <div class="dt">全部商品分类</div>
+            </div>
+            <div class="navitems">
+                <ul>
+                    <li><a href="02mobileCity.html" class="style_red">手机城</a></li>
+                    <li><a href="03BrandFlashPurchass.html" class="style_red">品牌闪购</a></li>
+                    <li><a href="javascript:;">美妆</a></li>
+                    <li><a href="javascript:;">全球购</a></li>
+                    <li><a href="04fresh.html" style="color: green;">生鲜</a></li>
+                    <li><a href="javascript:;">团购</a></li>
+                    <li><a href="javascript:;">拍卖</a></li>
+                    <li><a href="javascript:;" class="style_blue">iPhone13</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- nav模块制作end -->
+    <!-- 产品导航 start -->
+    <div class="w">
+        <div class="product_nav">
+            <a href="javascript:;">手机、数码、通讯</a> 〉
+            <a href="javascript:;">手机</a>〉
+            <a href="javascript:;">Apple苹果</a>〉
+            <a href="javascript:;">iPhone13系列</a>〉
+        </div>
+    </div>
+    <!-- 产品导航end -->
+    <!-- 产品详情模块 -->
+    <div class="w">
+        <div class="preview_wrap">
+            <!-- 预览区域 -->
+            <div class="fl">
+                <div class="preview_img">
+                    <img src="../upload/iPhone/small_img.jpg" alt="" class="small_img">
+                    <div class="mask"></div>
+                    <i></i>
+                    <div class="big">
+                        <img src="../upload/iPhone/big_img.jpg" alt="" class="bigImg">
+                    </div>
+                </div>
+                <div class="mini">
+                    <img src="../upload/iPhone/small.png" alt="">
+                    <img src="../upload/iPhone/small1.png" alt="">
+                </div>
+            </div>
+            <!-- 商品详细信息 -->
+            <div class="fr">
+                <div class="preview_text">
+                    <h4>Apple 苹果 iPhone 13 支持移动联通电信5G 双卡双待手机 粉色 128GB</h4>
+                    <p class="style_red">推荐选择下方[移动优惠购]，手机套餐齐搞定，不用换号，每月还有花费返</p>
+                    <div class="price">
+                        <p> 价 &nbsp &nbsp &nbsp格 <b class="style_red">￥<a class="style_red">6299.00</a> 降价通知</b>
+                            <i>累计评价<span class="style_blue">612188</span></i>
+                        </p>
+                        <p class="text">促 &nbsp &nbsp&nbsp 销 <span class="more_price">加价购</span>
+                            <em>满999.00另加20.00元，或满1999.00另加30元，或满2999.00另加40.00元，即可在购物车换<br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp购热销商品 详情》</em>
+                        </p>
+                    </div>
+                    <div class="price_button">
+                        <p>支 &nbsp &nbsp &nbsp持 <em>以旧换新，闲置手机回收 5G套餐超值抢 礼品购</em></p>
+                        <p>配 送 至<em> 长沙芙蓉区 &nbsp &nbsp &nbsp 有货 &nbsp &nbsp &nbsp支持&nbsp &nbsp 99免运费 |货到付款 |211限时达<br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp&nbsp由自营发货， 并提供售后服务 11：00前完成下单，
+                                预计今天《08月10日》送达</em></p>
+                    </div>
+                    <div class="type_info">
+                        <p>选择颜色<span>金色</span><span>黄色</span><span>黑色</span><span class="active">粉红色</span></p>
+                        <p>选择版本<span class="active">全网通</span><span>移动5G</span></p>
+                        <p>选择容量<span>512GB</span><span class="active">256GB</span><span>128GB</span></p>
+                        <p>购买方式<span class="active">官方标配</span><span>移动优惠购</span><span>电信优惠购</span></p>
+                        <p>套 &nbsp &nbsp &nbsp装 <span>保护套装</span><span>充电套装</span></p>
+                        <div class="num_wrap">
+                            <div class="num">
+                                <div class="number">1</div>
+                                <i class="plus">+</i>
+                                <i class="reduce">-</i>
+                            </div>
+                            <button>立即购买</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content_left">
+                <div class="content_nav">
+                    <span>店铺热销</span>
+                    <span>热门关注</span>
+                </div>
+                <div class="content_item">
+                    <ul>
+                        <li>
+                            <img src="../upload/iPhone/item1.png" alt="">
+                            <p>小米Redmi 红米9A 智能老人手机砂石黑 4GB + 64GB</p>
+                            <i>热销7224件</i>
+                            <b>￥587.00</b>
+                        </li>
+                        <li>
+                            <img src="../upload/iPhone/item2.png" alt="">
+                            <p>小米Redmi 红米K30至尊纪念版 5G智能手机 月幕白 8GB+128GB</p>
+                            <i>热销6749件</i>
+                            <b>￥1928.00</b>
+                        </li>
+                        <li>
+                            <img src="../upload/iPhone/item3.png" alt="">
+                            <p>小米Redmi 红米Note9 Pro 5G手机湖光秋色 6GB+128GB 官方标配</p>
+                            <i>热销4126件</i>
+                            <b>￥1428.00</b>
+                        </li>
+                        <li>
+                            <img src="../upload/iPhone/item4.png" alt="">
+                            <p>小米Redmi 红米K305 至尊纪念版双模5G手机 月光银 8GB + 128GB </p>
+                            <i>热销4017件</i>
+                            <b>￥2298.00</b>
+                        </li>
+                        <li>
+                            <img src="../upload/iPhone/item5.png" alt="">
+                            <p>小米Redmi 红米Note9 5G 手机 云墨灰 6GB + 128GB</p>
+                            <i>热销3230件</i>
+                            <b>￥1149.00</b>
+                        </li>
+                        <li>
+                            <img src="../upload/iPhone/item6.png" alt="">
+                            <p>优惠专拍链接 补差价邮费 单拍不发货 10元</p>
+                            <i>热销3165件</i>
+                            <b>￥10.00</b>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_right">
+                <div class="content_check">
+                    <div class="check_hd">
+                        <span>选择搭配</span>
+                    </div>
+                    <div class="check_nav clearfix">
+                        <ul>
+                            <li>精品</li>
+                            <li>iPhone配件</li>
+                            <li>蓝牙耳机</li>
+                            <li>自拍杆</li>
+                            <li>数据线</li>
+                            <li>其他手机配件</li>
+                            <li>U盘</li>
+                        </ul>
+                    </div>
+                    <div class="check_list">
+                        <ul>
+                            <li class="check_iphone">
+                                <img src="../upload/iPhone/check1.png" alt="">
+                                <b>￥5299.00</b>
+                            </li>
+                            <li class="plus">+</li>
+                            <li>
+                                <img src="../upload/iPhone/check2.png" alt="">
+                                <p>FelessF费勒斯VR...</p>
+                                <input type="checkbox" name="" id="">
+                                <b>￥39.00</b>
+                            </li>
+                            <li>
+                                <img src="../upload/iPhone/check3.png" alt="">
+                                <p>ROCK洛克VR眼睛虚...</p>
+                                <input type="checkbox" name="" id="">
+                                <b>76.00</b>
+                            </li>
+                            <li>
+                                <img src="../upload/iPhone/check4.png" alt="">
+                                <p>Faseyes爱易思...</p>
+                                <input type="checkbox" name="" id="">
+                                <b>￥76.00</b>
+                            </li>
+                            <li>
+                                <img src="../upload/iPhone/check5.png" alt="">
+                                <p>Faseyes爱易思懒人...</p>
+                                <input type="checkbox" name="" id="">
+                                <b>￥76.00</b>
+                            </li>
+                            <span class="next"></span>
+                        </ul>
+                        <div class="check_list_right">
+                            <p>已选购0件搭配</p>
+                            <b>套餐价：</b>
+                            <i class="style_red">￥<strong>6299.00</strong></i>
+                            <button>立即购买</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="colum_nav">
+                        <span>商品介绍</span>
+                        <span>规格与包装</span>
+                        <span>售后保障</span>
+                        <span>商品评价（5000）</span>
+                        <span>手机社区</span>
+                    </div>
+                    <table>
+                        <tr class="first">
+                            <td>品牌：苹果(Apple)</td>
+                        </tr>
+                        <tr>
+                            <td>商品名称：苹果(Apple)iPhone 13</td>
+                            <td>商品编号：10037905558235</td>
+                            <td>商品毛重：500.00g</td>
+                            <td>运动内存：其他</td>
+                        </tr>
+                        <tr>
+                            <td>机身存储：128GB</td>
+                            <td>分辨率：其他</td>
+                            <td>屏幕比例：其他</td>
+                            <td>屏幕前摄组合：其他</td>
+                        </tr>
+                        <tr>
+                            <td>充电器：其他</td>
+                            <td>系统：iOS</td>
+                        </tr>
+                    </table>
+                    <a href="javascript:;">更多参数>></a>
+                    <div class="column_img">
+                        <img src="../upload/iPhone/imginformation.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="recommend">
+            <div class="recommend_hd">
+                <span>店长推荐</span>
+                <ul>
+                    <li>
+                        <img src="../upload/iPhone/recommend1.png" alt="">
+                        <b>￥8578.00</b>
+                    </li>
+                    <li>
+                        <img src="../upload/iPhone/recommend2.png" alt="">
+                        <b>￥6278.00</b>
+                    </li>
+                    <li>
+                        <img src="../upload/iPhone/recommend3.png" alt="">
+                        <b>￥9828.00</b>
+                    </li>
+                    <li>
+                        <img src="../upload/iPhone/recommend4.png" alt="">
+                        <b>￥2388.00</b>
+                    </li>
+                    <li>
+                        <img src="../upload/iPhone/recommend5.png" alt="">
+                        <b>￥2138.00</b>
+                    </li>
+                    <li>
+                        <img src="../upload/iPhone/recommend6.png" alt="">
+                        <b>￥587.00</b>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- footer模块start -->
+    <footer class="footer">
+        <div class="w">
+            <div class="mod_service ">
+                <ul>
+                    <li>
+                        <h5 class="service_icon1"></h5>
+                        <div class="service_text">
+                            <h4>正品保障</h4>
+                            <p>正品保障、提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon2"></h5>
+                        <div class="service_text">
+                            <h4>夏莫尼物流</h4>
+                            <p>急速物流、急速送达</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon3"></h5>
+                        <div class="service_text">
+                            <h4>无忧售后</h4>
+                            <p>7天无理由退货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon4"></h5>
+                        <div class="service_text">
+                            <h4>特色服务</h4>
+                            <p>私人定制，家电套装</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon5"></h5>
+                        <div class="service_text">
+                            <h4>帮助中心</h4>
+                            <p>您的购物指南</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mod_help">
+                <dl>
+                    <dt><a href="javascirpt:;">购物指南</a></dt>
+                    <dd><a href="javascirpt:;">购物流程</a></dd>
+                    <dd><a href="javascirpt:;">会员介绍</a></dd>
+                    <dd><a href="javascirpt:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascirpt:;">常见问题</a></dd>
+                    <dd><a href="javascirpt:;">大家电</a></dd>
+                    <dd><a href="javascirpt:;">联系客服</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">配送方式</a></dt>
+                    <dd><a href="javascirpt:;">上门自取</a></dd>
+                    <dd><a href="javascirpt:;">支付方式</a></dd>
+                    <dd><a href="javascirpt:;">211限时达</a></dd>
+                    <dd><a href="javascirpt:;">配送服务查询</a></dd>
+                    <dd><a href="javascirpt:;">配送费收取标准</a></dd>
+                    <dd><a href="javascirpt:;">海外配送</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">支付方式</a></dt>
+                    <dd><a href="javascirpt:;">货到付款</a></dd>
+                    <dd><a href="javascirpt:;">在线支付</a></dd>
+                    <dd><a href="javascirpt:;">分期付款</a></dd>
+                    <dd><a href="javascirpt:;">邮局汇款</a></dd>
+                    <dd><a href="javascirpt:;">公司转账</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">售后服务</a></dt>
+                    <dd><a href="javascirpt:;">售后政策</a></dd>
+                    <dd><a href="javascirpt:;">价格保护</a></dd>
+                    <dd><a href="javascirpt:;">退款说明</a></dd>
+                    <dd><a href="javascirpt:;">退修/退换货</a></dd>
+                    <dd><a href="javascirpt:;">取消订单</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">特色服务</a></dt>
+                    <dd><a href="javascirpt:;">夺宝岛</a></dd>
+                    <dd><a href="javascirpt:;">DIY装机</a></dd>
+                    <dd><a href="javascirpt:;">延保服务</a></dd>
+                    <dd><a href="javascirpt:;">夏莫尼会员卡</a></dd>
+                    <dd><a href="javascirpt:;">亲情服务</a></dd>
+                </dl>
+                <dl>
+                    <dt>帮助中心</dt>
+                    <dd><img src="../images/erweima.png" alt=""></dd>
+                    <dd>夏莫尼客户端</dd>
+                </dl>
+            </div>
+            <div class="mode_copyright">
+                <div class="links">
+                    <a href="javascirpt:;">关于我们</a> |
+                    <a href="javascirpt:;">联系我们</a> |
+                    <a href="javascirpt:;">联系客服</a> |
+                    <a href="javascirpt:;">商家入驻</a> |
+                    <a href="javascirpt:;">营销中心</a> |
+                    <a href="javascirpt:;">手机夏莫尼</a> |
+                    <a href="javascirpt:;">友情链接</a> |
+                    <a href="javascirpt:;">销售联盟</a> |
+                    <a href="javascirpt:;">夏莫尼社区</a> |
+                    <a href="javascirpt:;">夏莫尼公益</a> |
+                    <a href="javascirpt:;">English Site</a> |
+                    <a href="javascirpt:;">Contact U</a> |
+                </div>
+                <div class="copyright">
+                    地址：湖南省长沙市芙蓉区 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn<br>
+                    湘ICP备08001421号湘公网安备110108007702
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer模块end -->
+</body>
+
+</html>

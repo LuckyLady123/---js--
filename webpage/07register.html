@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏莫尼欢迎您的注册</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<style>
+    header {
+        border-bottom: 1px solid #ba1f2a;
+    }
+
+    .title {
+        background-color: #ececec;
+        margin-top: 22px;
+        padding: 0 10px;
+        height: 45px;
+        line-height: 45px;
+        border: 1px solid #99999999
+    }
+
+    .title h4 {
+        float: left;
+        font-size: 18px;
+        font-weight: normal;
+    }
+
+    .title p {
+        float: right;
+    }
+
+    input {
+        height: 34px;
+        width: 290px;
+        background-color: transparent;
+        border: 1px solid #999999;
+        margin-bottom: 20px;
+        font-size: 12px;
+        padding-left: 5px;
+    }
+
+    .table {
+        width: 435px;
+        padding-top: 54px;
+        font-size: 14px;
+        margin-left: 312px;
+        text-align: right;
+    }
+
+    .table button {
+        margin-right: 70px;
+        font-size: 12px;
+        padding-left: 5px;
+    }
+
+    .sms {
+        width: 145px;
+    }
+
+    .login {
+        margin-bottom: 10px;
+    }
+
+    .table span {
+        width: 34px;
+        height: 13px;
+        margin: 0px 2px 10px 0;
+        text-align: center;
+        background-color: red;
+        padding: 0 10px;
+        color: #fff;
+    }
+
+    .table b {
+        color: #b2b2b2;
+        font-size: 12px;
+        padding-right: 5px;
+    }
+
+    .ensure {
+        margin-top: 20px;
+    }
+
+    .table .com {
+        background-color: green;
+    }
+
+    .table .pow {
+        background-color: orange;
+    }
+
+    .footer {
+        background-color: transparent;
+        margin-top: 20px;
+    }
+
+    .mode_copyright {
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+    }
+
+    .checked {
+        width: 16px;
+        height: 16px;
+        vertical-align: sub;
+    }
+
+    .check {
+        margin-top: 77px;
+        margin-right: 40px;
+    }
+
+    .submit {
+        width: 200px;
+        font-size: 16px;
+        color: #fff;
+        border-color: none;
+        background-color: #ba1f2a;
+        margin-right: 60px;
+    }
+
+    .verification_code {
+        padding: 5px;
+        border: 1px solid #b2b2b2;
+    }
+</style>
+
+<script>
+    window.addEventListener('load', function () {
+        var btn = document.querySelector('.verification_code');
+        var time = 60;
+        var phone = document.querySelector('.phone');
+        btn.addEventListener('click', function () {
+            if (phone.value == '') {
+                alert("请输入手机号码")
+
+            } else if (phone.value.length != 11) {
+                alert("请输入正确的手机号码")
+            } else {
+                btn.disabled = true;
+                var timer = setInterval(function () {
+                    if (time == 0) {
+                        // 清除定时器复原按钮
+                        clearInterval(timer);
+                        btn.disabled = false;
+                        btn.innerHTML = '发送验证码';
+                    } else {
+                        btn.innerHTML = "还剩下" + time + '秒'
+                        time--
+                    }
+                }, 1000)
+            }
+
+        })
+    })
+</script>
+
+<body>
+    <header class="header w">
+        <!-- logo模块 -->
+        <div class="logo">
+            <h1>
+                <a href="../index.html" title="夏莫尼商城">夏莫尼商城</a>
+            </h1>
+        </div>
+    </header>
+    <div class="title w">
+        <h4>注册新用户</h4>
+        <p>我有账号去,&nbsp; <a href="06login.html" class="style_red"> 登录</a></p>
+    </div>
+    <section class="w">
+        <div class="table">
+            <label for="">手机号：</label> <input type="number" class="phone" placeholder="请输入11位手机号码"><br>
+            <label for="">短信验证码：</label><input type="number" class="sms" placeholder="请输入6位验证码">
+            <button class="verification_code">发送验证码</button><br>
+            <label for="">登录密码：</label><input type="password" class="login" placeholder="请输入6~16位由数字和字母组成的密码"><br>
+            <b>安全程度</b><span>弱</span><span class="com">中</span><span class="pow">强</span><br>
+            <label for="">确认密码：</label><input type="password" class="ensure"><br>
+            <p><a href="javascript:;" class="style_red">切换邮箱注册</a></p>
+            <div class="check">
+                <input type="checkbox" checked="checked" class="checked">同意协议并注册<a href="javascript:;"
+                    class="style_blue">《夏莫尼用户协议》</a>
+            </div>
+            <input type="submit" class="submit" value="完成注册">
+        </div>
+
+    </section>
+    <!-- footer模块start -->
+    <footer class="footer">
+        <div class="w">
+            <div class="mode_copyright">
+                <div class="links">
+                    <a href="javascirpt:;">关于我们</a> |
+                    <a href="javascirpt:;">联系我们</a> |
+                    <a href="javascirpt:;">联系客服</a> |
+                    <a href="javascirpt:;">商家入驻</a> |
+                    <a href="javascirpt:;">营销中心</a> |
+                    <a href="javascirpt:;">手机夏莫尼</a> |
+                    <a href="javascirpt:;">友情链接</a> |
+                    <a href="javascirpt:;">销售联盟</a> |
+                    <a href="javascirpt:;">夏莫尼社区</a> |
+                    <a href="javascirpt:;">夏莫尼公益</a> |
+                    <a href="javascirpt:;">English Site</a> |
+                    <a href="javascirpt:;">Contact U</a> |
+                </div>
+                <div class="copyright">
+                    地址：湖南省长沙市芙蓉区 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn<br>
+                    湘ICP备08001421号湘公网安备110108007702
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer模块end -->
+</body>
+
+</html>

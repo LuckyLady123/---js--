@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏莫尼----手机城</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!-- 初始化样式 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/animate.js"></script>
+</head>
+<style>
+    img:hover {
+        opacity: 1;
+    }
+
+    .nav_list ul li {
+        float: left;
+        width: 100px;
+        font-size: 12px;
+        line-height: 47px;
+        text-align: center;
+    }
+
+    .nav_list ul li:nth-child(-n+3) a {
+        font-size: 14px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .detail {
+        position: relative;
+        overflow: hidden;
+        height: 455px;
+        background-color: #fff;
+    }
+
+    .detail ul {
+        position: relative;
+        width: 3400px;
+    }
+
+    .detail ul li {
+        position: relative;
+        float: left;
+        width: 289px;
+        height: 455px;
+        text-align: center;
+        margin-right: 14px;
+    }
+
+    .detail ul li:last-child {
+        margin-right: 0;
+    }
+
+    .detail ul li p {
+        text-align: left;
+        padding: 4px;
+        margin-top: 10px;
+    }
+
+    .detail .text {
+        position: absolute;
+        top: 340px;
+        left: 2px;
+    }
+
+    .detail strong {
+        font-size: 22px;
+        color: #e60012;
+    }
+
+    .detail .percent {
+        position: absolute;
+        top: 375px;
+        left: 4px;
+    }
+
+    .detail .percent em {
+        position: absolute;
+        left: 224px;
+        width: 60px;
+    }
+
+    .detail button {
+        position: absolute;
+        width: 100%;
+        height: 51px;
+        color: #fff;
+        background-color: #0183fd;
+        bottom: 0;
+        left: 0;
+    }
+
+    .precitionBar {
+        position: absolute;
+        top: 3px;
+        left: 73px;
+        width: 132px;
+        height: 12px;
+        border: 1px solid #e60012;
+        border-radius: 6px;
+    }
+
+    .bar {
+        width: 118px;
+        height: 100%;
+        background-color: #e60012;
+    }
+
+    .daily {
+        height: 319px;
+        margin-top: 34px;
+
+    }
+
+    .daily img {
+        float: left;
+    }
+
+    .daily_nav ul li {
+        float: left;
+        line-height: 49px;
+        background-color: #fff;
+    }
+
+    .daily_nav ul li:nth-child(even) {
+        padding: 0 88px;
+    }
+
+    .daily_nav ul li:first-child {
+        padding-left: 88px;
+    }
+
+    .daily_nav ul li:last-child {
+        padding-right: 87px;
+    }
+
+    .daily_nav ul li a {
+        display: inline-block;
+        width: 71px;
+        height: 49px;
+        line-height: 49px;
+        text-align: center;
+        border-bottom: 2px solid #0183fd;
+        color: #0183fd;
+        /* padding: 0 88px; */
+    }
+
+    .daily_nav ul li:nth-child(n+2) a {
+        border-bottom: none;
+        color: #666;
+    }
+
+    .daily_box {
+        float: left;
+        height: 271px;
+        text-align: center;
+    }
+
+    .daily_box div {
+        position: relative;
+        float: left;
+        width: 193px;
+        height: 271px;
+        line-height: 271px;
+        background-color: #fff;
+        margin-right: 8px;
+    }
+
+    .daily_box div:last-child {
+        margin-right: 0;
+    }
+
+    .daily_box div img {
+        position: absolute;
+        left: 12px;
+        bottom: 0;
+    }
+
+    .sort {
+        height: 326px;
+        margin-top: 10px;
+    }
+
+    .sort img {
+        float: left;
+        margin-left: 4.5px;
+    }
+
+    .sort img:first-child {
+        margin-left: 0;
+    }
+
+    .brand {
+        height: 68px;
+    }
+
+    .brand {
+        text-align: center;
+        color: #000;
+    }
+
+    .brand h2 {
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+    .brand p {
+        font-size: 18px;
+    }
+
+    .apple ul li {
+
+        float: left;
+        width: 193px;
+        height: 276px;
+        background-color: #fff;
+        margin-right: 8px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .apple ul li:last-child {
+        margin-right: 0;
+    }
+
+    .apple ul li .text {
+        margin-top: 10px;
+        margin-left: 20px;
+        text-align: left;
+        color: #000;
+    }
+
+    .apple ul li .text b {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #f34e77;
+    }
+</style>
+<script>
+    window.addEventListener('load', function () {
+        var detail = document.querySelector('.detail');
+        var ul = detail.querySelector('ul'); // 这里必须使用getElementsByTagName
+        console.log(ul.offsetLeft);
+        var lis = detail.getElementsByTagName("li");//这里也不能用h5新增的方法获取
+        var direction = -2;
+        // var timer = null;
+        ul.innerHTML = ul.innerHTML + ul.innerHTML;
+        //console.log(ul.innerHTML);
+        ul.style.width = lis[0].offsetWidth * (lis.length + 1) + "px";
+        function move() {
+            if (ul.offsetLeft < -ul.offsetWidth / 2) {
+                ul.style.left = 0;
+            }
+            ul.style.left = ul.offsetLeft - 2 + 'px'
+        }
+        var timer = setInterval(move, 30);
+
+        ul.addEventListener('mouseover', function () {
+            clearInterval(timer);
+        });
+
+        ul.addEventListener('mouseout', function () {
+            timer = setInterval(move, 30)
+            // console.log(timer);
+        });
+
+
+    })
+</script>
+
+<body>
+    <!-- 快捷导航栏模块 -->
+    <section class="shoutcut">
+        <div class="w">
+            <div class="fl">
+                <ul>
+                    <li>夏莫尼迎您！</li>
+                    <li>
+                        <a href="06login.html" class="style_blue">请登录</a>&nbsp;
+                        <a href="07register.html" class="style_red">免费注册</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="fr">
+                <ul>
+                    <li><a href="08Myorder.html" class="style_red">我的订单</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">我的夏莫尼</a></li>
+                    <li></li>
+                    <li><a href="#">夏莫尼会员</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">企业采购</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">关注夏莫尼</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">客户服务</a></li>
+                    <li></li>
+                    <li class="arrow_icon"><a href="#">网址导航</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- header模块制作start -->
+    <header class="header w">
+        <!-- logo模块 -->
+        <div class="logo">
+            <h1>
+                <a href="../index.html" title="夏莫尼商城">夏莫尼商城</a>
+            </h1>
+        </div>
+        <!-- search搜索模块 -->
+        <div class="search">
+            <input type="search" placeholder="javacript书籍">
+            <button>搜索</button>
+        </div>
+        <!-- hotwords模块制作 -->
+        <div class="hotwords">
+            <a href="#">夏莫尼首发</a>
+            <a href="#">亿元优惠</a>
+            <a href="#">9.9团购</a>
+            <a href="#">每满99减30</a>
+            <a href="#">办公用品</a>
+            <a href="#">电脑</a>
+            <a href="#">通信</a>
+        </div>
+        <!-- 购物车模块 -->
+        <div class="shopcar"><a href="09shopcar.html">
+                我的购物车
+                <i class="count">8</i>
+            </a>
+        </div>
+    </header>
+    <!-- header模块制作end -->
+    <nav class="nav">
+        <div class="w">
+            <div class="nav_list">
+                <ul>
+                    <li><a href="javacript:;">品优秒杀</a></li>
+                    <li><a href="javacript:;">即将售罄</a></li>
+                    <li><a href="javacript:;">超值低价</a></li>
+                    <li><a href="javacript:;">女装</a></li>
+                    <li><a href="javacript:;">女鞋</a></li>
+                    <li><a href="javacript:;">男装</a></li>
+                    <li><a href="javacript:;">男鞋</a></li>
+                    <li><a href="javacript:;">母婴童装</a></li>
+                    <li><a href="javacript:;">食品</a></li>
+                    <li><a href="javacript:;">智能数码</a></li>
+                    <li><a href="javacript:;">运动户外</a></li>
+                    <li><a href="javacript:;">更多分类</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="top w">
+        <img src="../upload/mobileCity/top.png" alt="">
+    </div>
+    <!-- detail start -->
+    <div class="detail w">
+        <ul>
+            <li><a href="05iPhone13.html">
+                    <img src="../upload/mobileCity/detail1.png" alt="">
+                    <p>Apple iPhone 13 Pro (A2408) 128GB 粉色 支持移动联通电信5G 双卡双待手机</p>
+                    <div class="text">
+                        <strong>￥6299</strong>
+                        <strike>￥6988</strike>
+                    </div>
+                    <div class="percent">
+                        <i>已售87%</i><a></a>
+                        <em>未售<a class="style_red">29</a>件</em>
+                        <div class="precitionBar">
+                            <div class="bar">
+                            </div>
+                        </div>
+                    </div>
+                    <button>立即抢购</button>
+                </a>
+            </li>
+            <li>
+                <img src="../upload/mobileCity/detail2.png" alt="">
+                <p>Apple iPhone 13 mini (A2629) 512GB 星光色 手机 支持移动联通电信5G</p>
+                <div class="text">
+                    <strong>￥6399</strong>
+                    <strike>￥6988</strike>
+                </div>
+                <div class="percent">
+                    <i>已售87%</i><a></a>
+                    <em>未售<a class="style_red">29</a>件</em>
+                    <div class="precitionBar">
+                        <div class="bar">
+                        </div>
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <img src="../upload/mobileCity/detail3.png" alt="">
+                <p>Apple iPhone 13 mini (A2629) 256GB 蓝色 手机 支持移动联通电信5G
+                </p>
+                <div class="text">
+                    <strong>￥6299</strong>
+                    <strike>￥6988</strike>
+                </div>
+                <div class="percent">
+                    <i>已售87%</i><a></a>
+                    <em>未售<a class="style_red">29</a>件</em>
+                    <div class="precitionBar">
+                        <div class="bar">
+                        </div>
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <img src="../upload/mobileCity/detail4.png" alt="">
+                <p>Apple iPhone 12 (A2404) 128GB 白色 支持移动联通电信5G 双卡双待手机
+                </p>
+                <div class="text">
+                    <strong>￥6099</strong>
+                    <strike>￥6988</strike>
+                </div>
+                <div class="percent">
+                    <i>已售87%</i><a></a>
+                    <em>未售<a class="style_red">29</a>件</em>
+                    <div class="precitionBar">
+                        <div class="bar">
+                        </div>
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <img src="../upload/mobileCity/detail5.png" alt="">
+                <p>华为 HUAWEI Mate X2 麒麟9000旗舰芯片 超感知徕卡四摄 512GB亮黑色 5G全网通华为手机
+                </p>
+                <div class="text">
+                    <strong>￥18799</strong>
+                    <strike>￥29288</strike>
+                </div>
+                <div class="percent">
+                    <i>已售87%</i><a></a>
+                    <em>未售<a class="style_red">29</a>件</em>
+                    <div class="precitionBar">
+                        <div class="bar">
+                        </div>
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <img src="../upload/mobileCity/detail6.png" alt="">
+                <p> 华为 HUAWEI nova 8 Pro 麒麟985 5G SoC芯片 Vlog视频双镜头亮黑色全网通5G手机
+                </p>
+                <div class="text">
+                    <strong>￥4099</strong>
+                    <strike>￥5988</strike>
+                </div>
+                <div class="percent">
+                    <i>已售87%</i><a></a>
+                    <em>未售<a class="style_red">29</a>件</em>
+                    <div class="precitionBar">
+                        <div class="bar">
+                        </div>
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <img src="../upload/mobileCity/detail7.png" alt="">
+                <p> 华为 HUAWEI Mate 40 Pro 4G 全网通 麒麟9000旗舰芯片 8GB+256GB亮黑色华为手机
+                </p>
+                <div class="text">
+                    <strong>￥4888</strong>
+                    <strike>￥5988</strike>
+                </div>
+                <div class="percent">
+                    <i>已售87%</i><a></a>
+                    <em>未售<a class="style_red">29</a>件</em>
+                    <div class="precitionBar">
+                        <div class="bar">
+                        </div>
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <img src="../upload/mobileCity/detail8.png" alt="">
+                <p> 华为 HUAWEI Mate 40 RS 保时捷设计麒麟9000芯片 超感知徕卡电影五摄全网通手机
+                </p>
+                <div class="text">
+                    <strong>￥10900</strong>
+                    <strike>￥11988</strike>
+                </div>
+                <div class="percent">
+                    <i>已售87%</i><a></a>
+                    <em>未售<a class="style_red">29</a>件</em>
+                    <div class="precitionBar">
+                        <div class="bar">
+                        </div>
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+
+        </ul>
+    </div>
+    <!-- detail end -->
+
+    <!-- Daily Selection start -->
+    <div class="daily w">
+        <div class="right ">
+            <img src="../upload/mobileCity/dailyselection.png" alt="">
+        </div>
+        <div class="daily_nav">
+            <ul>
+                <li><a href="javascript:;">热卖推荐</a></li>
+                <li>|</li>
+                <li><a href="javascript:;">人气新品</a></li>
+                <li>|</li>
+                <li><a href="javascript:;">限时特惠</a></li>
+                <li>|</li>
+                <li><a href="javascript:;">配件专区</a></li>
+            </ul>
+        </div>
+        <div class="daily_box">
+            <div class="div1"><img src="../upload/mobileCity/box1.png" alt=""></div>
+            <div class="div2"><img src="../upload/mobileCity/box2.png" alt=""></div>
+            <div class="div3"><img src="../upload/mobileCity/box3.png" alt=""></div>
+            <div class="div4"><img src="../upload/mobileCity/box4.png" alt=""></div>
+            <div class="div5"><img src="../upload/mobileCity/box5.png" alt=""></div>
+        </div>
+    </div>
+    <!-- Daily Selection end -->
+    <!-- Sort   start -->
+    <div class="sort w">
+        <img src="../upload/mobileCity/sort1.png" alt="">
+        <img src="../upload/mobileCity/sort2.png" alt="">
+        <img src="../upload/mobileCity/sort3.png" alt="">
+        <img src="../upload/mobileCity/sort4.png" alt="">
+        <img src="../upload/mobileCity/sort5.png" alt="">
+    </div>
+    <!-- Sort   end -->
+    <div class="brand w">
+        <h2>品牌旗舰店</h2>
+        <p>大牌聚会，品质甄选</p>
+    </div>
+    <div class="brand_content w">
+        <div class="apple">
+            <ul class="clearfix">
+                <li>
+                    <img src="../upload/mobileCity/brand6.png" alt="">
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand1.png" alt="">
+                    <div class="text">
+                        <p>Apple iPhone 13 mini<br>
+                            (A2629) 256GB 蓝色 手..
+                        </p>
+                        <b>￥5999.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand2.png" alt="">
+                    <div class="text">
+                        <p>Apple iPad mini 8.3英寸<br>
+                            平板电脑 2021年新款...
+                        </p>
+                        <b>￥3799.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand3.png" alt="">
+                    <div class="text">
+                        <p>Apple Watch Series 7智<br>
+                            能手表GPS款45 毫米星...
+                        </p>
+                        <b>￥3799.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand4.png" alt="">
+                    <div class="text">
+                        <p>Apple iPhone 12 Pro<br>
+                            (A2408) 128GB 金色 支...
+                        </p>
+                        <b>￥3799.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand5.png" alt="">
+                    <div class="text">
+                        <p>Apple iPad mini 5 2019年<br>
+                            新款平板电脑 7.9英寸...
+                        </p>
+                        <b>￥2749.00</b>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="apple">
+            <ul class="clearfix">
+                <li> <img src="../upload/mobileCity/brand2-1.png" alt=""></li>
+                <li>
+                    <img src="../upload/mobileCity/brand2-2.png" alt="">
+                    <div class="text">
+                        <p>华为畅享 20e 4G全网通<br>
+                            5000mAh大电池6.3英寸...
+                        </p>
+                        <b>￥999.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand2-3.png" alt="">
+                    <div class="text">
+                        <p>华为畅享 优畅享30e 5G<br>
+                            智慧双5G 22.5W安全快...
+                        </p>
+                        <b>￥1599.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand2-4.png" alt="">
+                    <div class="text">
+                        <p>华为畅享 麦芒 10 SE<br>
+                            22.5W超级快充5000m...
+                        </p>
+                        <b>￥1699.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand2-5.png" alt="">
+                    <div class="text">
+                        <p>【搭载HarmonyOS 2】华<br>
+                            为HUAWEI Mate 40 Pr
+                        </p>
+                        <b>￥6599.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand2-6.png" alt="">
+                    <div class="text">
+                        <p>华为HUAWEI Mate X2无<br>
+                            缝鹰翼折叠 超感知徕卡...
+                        </p>
+                        <b>￥1699.00</b>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="apple">
+            <ul class="clearfix">
+                <li> <img src="../upload/mobileCity/brand3-1.png" alt=""></li>
+                <li>
+                    <img src="../upload/mobileCity/brand3-2.png" alt="">
+                    <div class="text">
+                        <p>荣耀Play5 5G 66W超级快<br>
+                            充 6400万超清四射 6.5...
+                        </p>
+                        <b>￥2299.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand3-3.png" alt="">
+                    <div class="text">
+                        <p>荣耀Play5 5G 66W超级快<br>
+                            充 6400万超清四射 6.5...
+                        </p>
+                        <b>￥2299.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand3-4.png" alt="">
+                    <div class="text">
+                        <p>荣耀50 SE 1亿像素超清影<br>
+                            像 5G 6.78英寸全视屏...
+                        </p>
+                        <b>￥2699.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand3-5.png" alt="">
+                    <div class="text">
+                        <p>荣耀Play5 活力版 66W超级<br>
+                            充 120HZ全速屏
+                        </p>
+                        <b>￥1799.00</b>
+                    </div>
+                </li>
+                <li>
+                    <img src="../upload/mobileCity/brand3-6.png" alt="">
+                    <div class="text">
+                        <p>荣耀 Magic3 至臻版 多主<br>
+                            摄计算摄影 晓龙888Plu...
+                        </p>
+                        <b>￥7999.00</b>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- footer模块start -->
+    <footer class="footer">
+        <div class="w">
+            <div class="mod_service ">
+                <ul>
+                    <li>
+                        <h5 class="service_icon1"></h5>
+                        <div class="service_text">
+                            <h4>正品保障</h4>
+                            <p>正品保障、提供发票</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon2"></h5>
+                        <div class="service_text">
+                            <h4>夏莫尼物流</h4>
+                            <p>急速物流、急速送达</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon3"></h5>
+                        <div class="service_text">
+                            <h4>无忧售后</h4>
+                            <p>7天无理由退货</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon4"></h5>
+                        <div class="service_text">
+                            <h4>特色服务</h4>
+                            <p>私人定制，家电套装</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5 class="service_icon5"></h5>
+                        <div class="service_text">
+                            <h4>帮助中心</h4>
+                            <p>您的购物指南</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mod_help">
+                <dl>
+                    <dt><a href="javascirpt:;">购物指南</a></dt>
+                    <dd><a href="javascirpt:;">购物流程</a></dd>
+                    <dd><a href="javascirpt:;">会员介绍</a></dd>
+                    <dd><a href="javascirpt:;">生活旅行/团购</a></dd>
+                    <dd><a href="javascirpt:;">常见问题</a></dd>
+                    <dd><a href="javascirpt:;">大家电</a></dd>
+                    <dd><a href="javascirpt:;">联系客服</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">配送方式</a></dt>
+                    <dd><a href="javascirpt:;">上门自取</a></dd>
+                    <dd><a href="javascirpt:;">支付方式</a></dd>
+                    <dd><a href="javascirpt:;">211限时达</a></dd>
+                    <dd><a href="javascirpt:;">配送服务查询</a></dd>
+                    <dd><a href="javascirpt:;">配送费收取标准</a></dd>
+                    <dd><a href="javascirpt:;">海外配送</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">支付方式</a></dt>
+                    <dd><a href="javascirpt:;">货到付款</a></dd>
+                    <dd><a href="javascirpt:;">在线支付</a></dd>
+                    <dd><a href="javascirpt:;">分期付款</a></dd>
+                    <dd><a href="javascirpt:;">邮局汇款</a></dd>
+                    <dd><a href="javascirpt:;">公司转账</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">售后服务</a></dt>
+                    <dd><a href="javascirpt:;">售后政策</a></dd>
+                    <dd><a href="javascirpt:;">价格保护</a></dd>
+                    <dd><a href="javascirpt:;">退款说明</a></dd>
+                    <dd><a href="javascirpt:;">退修/退换货</a></dd>
+                    <dd><a href="javascirpt:;">取消订单</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="javascirpt:;">特色服务</a></dt>
+                    <dd><a href="javascirpt:;">夺宝岛</a></dd>
+                    <dd><a href="javascirpt:;">DIY装机</a></dd>
+                    <dd><a href="javascirpt:;">延保服务</a></dd>
+                    <dd><a href="javascirpt:;">夏莫尼会员卡</a></dd>
+                    <dd><a href="javascirpt:;">亲情服务</a></dd>
+                </dl>
+                <dl>
+                    <dt>帮助中心</dt>
+                    <dd><img src="../images/erweima.png" alt=""></dd>
+                    <dd>夏莫尼客户端</dd>
+                </dl>
+            </div>
+            <div class="mode_copyright">
+                <div class="links">
+                    <a href="javascirpt:;">关于我们</a> |
+                    <a href="javascirpt:;">联系我们</a> |
+                    <a href="javascirpt:;">联系客服</a> |
+                    <a href="javascirpt:;">商家入驻</a> |
+                    <a href="javascirpt:;">营销中心</a> |
+                    <a href="javascirpt:;">手机夏莫尼</a> |
+                    <a href="javascirpt:;">友情链接</a> |
+                    <a href="javascirpt:;">销售联盟</a> |
+                    <a href="javascirpt:;">夏莫尼社区</a> |
+                    <a href="javascirpt:;">夏莫尼公益</a> |
+                    <a href="javascirpt:;">English Site</a> |
+                    <a href="javascirpt:;">Contact U</a> |
+                </div>
+                <div class="copyright">
+                    地址：湖南省长沙市芙蓉区 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn<br>
+                    湘ICP备08001421号湘公网安备110108007702
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer模块end -->
+</body>
+
+</html>
